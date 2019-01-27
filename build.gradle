@@ -1,0 +1,31 @@
+plugins {
+  id 'java'
+  id 'idea'
+}
+
+group 'com.github.sport-stats'
+version '0.0.1'
+
+sourceCompatibility = 1.11
+
+ext {
+  junit_ver = '4.12'
+
+  spring_boot_ver = '2.1.2.RELEASE'
+}
+
+allprojects {
+  repositories {
+    mavenCentral()
+  }
+}
+
+subprojects {
+  version = '0.0.1'
+}
+
+dependencies {
+  compile project(':rest')
+
+  testImplementation "junit:junit:$junit_ver"
+}
