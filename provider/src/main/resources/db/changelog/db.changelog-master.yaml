@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0
+      author: noavarice
+      comment: Setting working schema
+      sqlFile:
+        - path: changeset/changeset-000.sql
+        - relativeToChangelogFile: true
