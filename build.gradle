@@ -10,7 +10,6 @@ sourceCompatibility = 1.11
 
 ext {
   junit_ver = '4.12'
-  logback_ver = '1.2.3'
 
   spring_boot_ver = '2.1.2.RELEASE'
 }
@@ -26,7 +25,7 @@ subprojects {
   version = '0.0.1'
 
   dependencies {
-    implementation "ch.qos.logback:logback-classic:$logback_ver"
+    implementation "org.springframework.boot:spring-boot-starter-web:$spring_boot_ver"
 
     testImplementation "junit:junit:$junit_ver"
   }

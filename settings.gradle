@@ -1,2 +1,2 @@
 rootProject.name = 'tennis-backend'
-include 'rest'
+include 'rest', 'services'

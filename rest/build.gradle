@@ -2,6 +2,12 @@ plugins {
   id 'java'
 }
 
+ext {
+  logback_ver = '1.2.3'
+}
+
 dependencies {
-  implementation "org.springframework.boot:spring-boot-starter-web:$spring_boot_ver"
+  implementation project(':services')
+
+  implementation "ch.qos.logback:logback-classic:$logback_ver"
 }
