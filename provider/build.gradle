@@ -1,0 +1,14 @@
+plugins {
+  id 'java'
+}
+
+ext {
+  postgres_driver_ver = '42.2.5'
+  hikari_ver = '3.3.1'
+}
+
+dependencies {
+  implementation "org.springframework.boot:spring-boot-starter-data-jpa:$spring_boot_ver"
+  runtimeOnly "org.postgresql:postgresql:$postgres_driver_ver"
+  runtimeOnly "com.zaxxer:HikariCP:$hikari_ver"
+}
