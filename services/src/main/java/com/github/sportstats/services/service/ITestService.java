@@ -1,4 +1,4 @@
-package com.github.sportstats.service;
+package com.github.sportstats.services.service;
 
 public interface ITestService {
 

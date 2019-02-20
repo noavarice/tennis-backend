@@ -1,6 +1,6 @@
-package com.github.sportstats.service.impl;
+package com.github.sportstats.services.service.impl;
 
-import com.github.sportstats.service.ITestService;
+import com.github.sportstats.services.service.ITestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -12,6 +12,6 @@ public class TestServiceImpl implements ITestService {
 
   @Override
   public void doSomething() {
-    LOGGER.info("From service");
+    LOGGER.info("From services");
   }
 }

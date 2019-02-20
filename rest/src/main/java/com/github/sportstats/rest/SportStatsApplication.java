@@ -1,4 +1,4 @@
-package com.github.sportstats;
+package com.github.sportstats.rest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
