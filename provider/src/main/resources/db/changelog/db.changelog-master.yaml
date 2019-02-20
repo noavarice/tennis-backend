@@ -6,3 +6,10 @@ databaseChangeLog:
       sqlFile:
         - path: changeset/changeset-000.sql
         - relativeToChangelogFile: true
+  - changeSet:
+      id: 1
+      author: noavarice
+      comment: Players table and basic country data
+      sqlFile:
+        - path: changeset/changeset-001.sql
+        - relativeToChangelogFile: true
