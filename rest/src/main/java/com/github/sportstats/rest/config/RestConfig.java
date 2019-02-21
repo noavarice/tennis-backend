@@ -5,9 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan({
-  "com.github.sportstats.rest",
-  "com.github.sportstats.services"
+  "com.github.sportstats.rest.controller",
+  "com.github.sportstats.services.config"
 })
-public class RestConfig {
-
-}
+public class RestConfig {}
