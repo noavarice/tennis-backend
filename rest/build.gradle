@@ -9,5 +9,6 @@ ext {
 dependencies {
   implementation project(':services')
 
+  implementation "org.springframework.boot:spring-boot-starter-web:$spring_boot_ver"
   implementation "ch.qos.logback:logback-classic:$logback_ver"
 }

@@ -26,13 +26,11 @@ subprojects {
 
   version = project.version
 
-  dependencies {
-    if (project.name in ['rest', 'services']) {
+  if (project.name in ['rest', 'services']) {
+    dependencies {
       implementation "org.mapstruct:mapstruct:$mapstruct_ver"
       annotationProcessor "org.mapstruct:mapstruct-processor:$mapstruct_ver"
     }
-
-    implementation "org.springframework.boot:spring-boot-starter-web:$spring_boot_ver"
   }
 }
 
