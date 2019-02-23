@@ -1,6 +1,6 @@
 package com.github.sportstats.rest.controller;
 
-import com.github.sportstats.services.service.ITestService;
+import com.github.sportstats.services.service.IPlayerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,16 +14,16 @@ public class TestController {
 
   private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 
-  private final ITestService service;
+  private final IPlayerService service;
 
   @Autowired
-  public TestController(final ITestService service) {
+  public TestController(final IPlayerService service) {
     this.service = service;
   }
 
   @GetMapping(path = "/ping")
   public void ping() {
     logger.info("From controller");
-    service.doSomething();
+    service.create();
   }
 }
