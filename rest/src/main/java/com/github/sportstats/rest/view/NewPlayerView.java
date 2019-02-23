@@ -1,19 +1,18 @@
-package com.github.sportstats.services.model.player;
+package com.github.sportstats.rest.view;
 
-import com.github.sportstats.commons.enumeration.Country;
 import java.time.LocalDate;
 
-public class NewPlayer {
+public class NewPlayerView {
 
   private String firstName;
 
   private String lastName;
 
-  private Country country;
+  private Integer countryId;
 
   private LocalDate birthDate;
 
-  private boolean male;
+  private Boolean male;
 
   public String getFirstName() {
     return firstName;
@@ -31,12 +30,12 @@ public class NewPlayer {
     this.lastName = lastName;
   }
 
-  public Country getCountry() {
-    return country;
+  public Integer getCountryId() {
+    return countryId;
   }
 
-  public void setCountry(Country country) {
-    this.country = country;
+  public void setCountryId(Integer countryId) {
+    this.countryId = countryId;
   }
 
   public LocalDate getBirthDate() {
@@ -47,11 +46,11 @@ public class NewPlayer {
     this.birthDate = birthDate;
   }
 
-  public boolean isMale() {
+  public Boolean getMale() {
     return male;
   }
 
-  public void setMale(boolean male) {
+  public void setMale(Boolean male) {
     this.male = male;
   }
 }

@@ -1,12 +1,10 @@
 package com.github.sportstats.services.service.impl;
 
-import com.github.sportstats.commons.Country;
-import com.github.sportstats.provider.model.PlayerEntity;
 import com.github.sportstats.provider.repository.IPlayerRepository;
-import com.github.sportstats.services.mapper.IPlayerMapper;
+import com.github.sportstats.services.mapper.IPlayerRestMapper;
 import com.github.sportstats.services.model.player.NewPlayer;
+import com.github.sportstats.services.model.player.Player;
 import com.github.sportstats.services.service.IPlayerService;
-import java.time.LocalDate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,25 +17,21 @@ public class PlayerServiceImpl implements IPlayerService {
 
   private final IPlayerRepository repository;
 
-  private final IPlayerMapper mapper;
+  private final IPlayerRestMapper mapper;
 
   @Autowired
   public PlayerServiceImpl(
     final IPlayerRepository repository,
-    final IPlayerMapper mapper) {
+    final IPlayerRestMapper mapper) {
     this.repository = repository;
     this.mapper = mapper;
   }
 
   @Override
-  public void create() {
-    LOGGER.info("From services");
-    final var newPlayer = new NewPlayer();
-    newPlayer.setFirstName("Test");
-    newPlayer.setLastName("tset");
-    newPlayer.setCountry(Country.RU);
-    newPlayer.setBirthDate(LocalDate.of(1990, 1, 1));
-    newPlayer.setMale(true);
-    repository.save(mapper.fromNewPlayer(newPlayer));
+  public Player create(final NewPlayer player) {
+    LOGGER.info("[Player] Creating new player");
+    final Player createdPlayer = mapper.toFullModel(repository.save(mapper.toEntity(player)));
+    LOGGER.info("[Player ID={}] Created {}", createdPlayer.getId(), createdPlayer);
+    return createdPlayer;
   }
 }

@@ -6,5 +6,7 @@ dependencies {
   implementation project(':provider')
   implementation project(':commons')
 
+  implementation "ch.qos.logback:logback-classic:$logback_ver"
+
   testImplementation "junit:junit:$junit_ver"
 }

@@ -1,8 +1,8 @@
-package com.github.sportstats.commons;
+package com.github.sportstats.commons.enumeration;
 
 import java.util.Optional;
 
-public enum Country {
+public enum Country implements IIdentifiedEnum {
 
   AF(1, "AF", "Afghanistan"),
   AL(2, "AL", "Albania"),
@@ -257,6 +257,7 @@ public enum Country {
     this.name = name;
   }
 
+  @Override
   public int getId() {
     return id;
   }

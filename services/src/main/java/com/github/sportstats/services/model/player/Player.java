@@ -2,8 +2,12 @@ package com.github.sportstats.services.model.player;
 
 import com.github.sportstats.commons.enumeration.Country;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
-public class NewPlayer {
+public class Player {
+
+  private int id;
 
   private String firstName;
 
@@ -14,6 +18,14 @@ public class NewPlayer {
   private LocalDate birthDate;
 
   private boolean male;
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
 
   public String getFirstName() {
     return firstName;
@@ -53,5 +65,31 @@ public class NewPlayer {
 
   public void setMale(boolean male) {
     this.male = male;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Player player = (Player) o;
+    return id == player.id;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
+  }
+
+  @Override
+  public String toString() {
+    return "Player{id=" + id + ", firstName='" + firstName +
+        "', lastName='" + lastName +
+        "', country=" + country.getCode() +
+        ", birthDate=" + birthDate +
+        ", " + (male ? "male" : "female") + '}';
   }
 }

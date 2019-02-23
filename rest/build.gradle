@@ -2,13 +2,8 @@ plugins {
   id 'net.ltgt.apt' version '0.20'
 }
 
-ext {
-  logback_ver = '1.2.3'
-}
-
 dependencies {
   implementation project(':services')
 
   implementation "org.springframework.boot:spring-boot-starter-web:$spring_boot_ver"
-  implementation "ch.qos.logback:logback-classic:$logback_ver"
 }

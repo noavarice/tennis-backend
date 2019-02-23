@@ -12,6 +12,7 @@ ext {
   junit_ver = '4.12'
 
   spring_boot_ver = '2.1.2.RELEASE'
+  logback_ver = '1.2.3'
   mapstruct_ver = '1.3.0.Final'
 }
 
@@ -28,6 +29,8 @@ subprojects {
 
   if (project.name in ['rest', 'services']) {
     dependencies {
+      implementation project(':commons')
+
       implementation "org.mapstruct:mapstruct:$mapstruct_ver"
       annotationProcessor "org.mapstruct:mapstruct-processor:$mapstruct_ver"
     }
