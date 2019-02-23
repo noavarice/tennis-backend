@@ -1,5 +1,6 @@
 package com.github.sportstats.provider.model;
 
+import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,9 +25,13 @@ public class PlayerEntity implements IEntity {
   @Column(nullable = false)
   private String lastName;
 
+  @Column(updatable = false)
   private boolean male;
 
   private int countryId;
+
+  @Column(nullable = false)
+  private LocalDate birthDate;
 
   public Integer getId() {
     return id;
@@ -66,5 +71,13 @@ public class PlayerEntity implements IEntity {
 
   public void setCountryId(int countryId) {
     this.countryId = countryId;
+  }
+
+  public LocalDate getBirthDate() {
+    return birthDate;
+  }
+
+  public void setBirthDate(LocalDate birthDate) {
+    this.birthDate = birthDate;
   }
 }

@@ -13,3 +13,10 @@ databaseChangeLog:
       sqlFile:
         - path: changeset/changeset-001.sql
         - relativeToChangelogFile: true
+  - changeSet:
+      id: 2
+      author: noavarice
+      comment: Added birth date column
+      sqlFile:
+        - path: changeset/changeset-002.sql
+        - relativeToChangelogFile: true

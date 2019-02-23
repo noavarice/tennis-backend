@@ -1,0 +1,2 @@
+ALTER TABLE ss.players
+  ADD COLUMN birth_date DATE NOT NULL DEFAULT '1980-01-01';
