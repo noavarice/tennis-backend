@@ -9,5 +9,4 @@ import org.springframework.context.annotation.Configuration;
     "com.github.sportstats.services.config",
     "com.github.sportstats.commons.config",
 })
-public class RestConfig {
-}
+public class RestConfig {}
