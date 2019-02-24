@@ -2,8 +2,13 @@ plugins {
   id 'net.ltgt.apt' version '0.20'
 }
 
+ext {
+  validator_ver = '6.0.15.Final'
+}
+
 dependencies {
   implementation project(':services')
 
   implementation "org.springframework.boot:spring-boot-starter-web:$spring_boot_ver"
+  implementation "org.hibernate.validator:hibernate-validator:$validator_ver"
 }
