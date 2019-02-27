@@ -1,6 +1,8 @@
-package com.github.sportstats.rest.view;
+package com.github.sportstats.rest.view.player;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.github.sportstats.commons.enumeration.Country;
+import com.github.sportstats.commons.util.DateTimeUtils;
 import com.github.sportstats.rest.validation.ConstraintConstants;
 import com.github.sportstats.rest.validation.Errors;
 import com.github.sportstats.rest.validation.PropertyPath;
@@ -60,6 +62,7 @@ public class NewPlayerView {
   @Past(
       message = PropertyPath.Player.BIRTH_DATE + Errors.NON_PAST,
       groups = BuiltIn.class)
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DateTimeUtils.ISO_DATE_PATTERN)
   private LocalDate birthDate;
 
   @NotNull(

@@ -1,9 +1,9 @@
 package com.github.sportstats.rest.controller;
 
 import com.github.sportstats.rest.mapper.IPlayerServicesMapper;
-import com.github.sportstats.rest.validation.group.Custom;
 import com.github.sportstats.rest.validation.group.sequence.DefaultOrder;
-import com.github.sportstats.rest.view.NewPlayerView;
+import com.github.sportstats.rest.view.player.NewPlayerView;
+import com.github.sportstats.rest.view.player.PlayerView;
 import com.github.sportstats.services.service.IPlayerService;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +35,7 @@ public class PlayerController {
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   @Validated(DefaultOrder.class)
-  public void create(@RequestBody @Valid final NewPlayerView view) {
-    service.create(mapper.toModel(view));
+  public PlayerView create(@RequestBody @Valid final NewPlayerView view) {
+    return mapper.toView(service.create(mapper.toModel(view)));
   }
 }
