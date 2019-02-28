@@ -1,6 +1,6 @@
 package com.github.sportstats.rest.controller;
 
-import com.github.sportstats.rest.mapper.IPlayerServicesMapper;
+import com.github.sportstats.rest.mapper.IPlayerRestMapper;
 import com.github.sportstats.rest.validation.group.sequence.DefaultOrder;
 import com.github.sportstats.rest.view.player.NewPlayerView;
 import com.github.sportstats.rest.view.player.PlayerView;
@@ -22,12 +22,12 @@ public class PlayerController {
 
   private final IPlayerService service;
 
-  private final IPlayerServicesMapper mapper;
+  private final IPlayerRestMapper mapper;
 
   @Autowired
   public PlayerController(
       final IPlayerService service,
-      final IPlayerServicesMapper mapper) {
+      final IPlayerRestMapper mapper) {
     this.service = service;
     this.mapper = mapper;
   }

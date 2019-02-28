@@ -1,15 +1,15 @@
 package com.github.sportstats.rest.view.player;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.github.sportstats.commons.enumeration.Country;
 import com.github.sportstats.commons.util.DateTimeUtils;
+import com.github.sportstats.rest.jackson.serialization.CountryDeserializer;
 import com.github.sportstats.rest.validation.ConstraintConstants;
 import com.github.sportstats.rest.validation.Errors;
 import com.github.sportstats.rest.validation.PropertyPath;
 import com.github.sportstats.rest.validation.StringFormat;
-import com.github.sportstats.rest.validation.constraint.ValidEnum;
 import com.github.sportstats.rest.validation.group.BuiltIn;
-import com.github.sportstats.rest.validation.group.Custom;
 import java.time.LocalDate;
 import javax.validation.constraints.*;
 
@@ -50,11 +50,8 @@ public class NewPlayerView {
   @NotNull(
       message = PropertyPath.Player.COUNTRY + Errors.IS_NULL,
       groups = BuiltIn.class)
-  @ValidEnum(
-      enumType = Country.class,
-      message = PropertyPath.Player.COUNTRY + Errors.UNKNOWN_VALUE,
-      groups = Custom.class)
-  private Integer countryId;
+  @JsonDeserialize(using = CountryDeserializer.class)
+  private Country country;
 
   @NotNull(
       message = PropertyPath.Player.BIRTH_DATE + Errors.IS_NULL,
@@ -86,12 +83,12 @@ public class NewPlayerView {
     this.lastName = lastName;
   }
 
-  public Integer getCountryId() {
-    return countryId;
+  public Country getCountry() {
+    return country;
   }
 
-  public void setCountryId(Integer countryId) {
-    this.countryId = countryId;
+  public void setCountry(Country country) {
+    this.country = country;
   }
 
   public LocalDate getBirthDate() {

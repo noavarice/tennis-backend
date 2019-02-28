@@ -1,7 +1,7 @@
 package com.github.sportstats.services.service.impl;
 
 import com.github.sportstats.provider.repository.IPlayerRepository;
-import com.github.sportstats.services.mapper.IPlayerRestMapper;
+import com.github.sportstats.services.mapper.IPlayerServicesMapper;
 import com.github.sportstats.services.model.player.NewPlayer;
 import com.github.sportstats.services.model.player.Player;
 import com.github.sportstats.services.service.IPlayerService;
@@ -17,12 +17,12 @@ public class PlayerServiceImpl implements IPlayerService {
 
   private final IPlayerRepository repository;
 
-  private final IPlayerRestMapper mapper;
+  private final IPlayerServicesMapper mapper;
 
   @Autowired
   public PlayerServiceImpl(
     final IPlayerRepository repository,
-    final IPlayerRestMapper mapper) {
+    final IPlayerServicesMapper mapper) {
     this.repository = repository;
     this.mapper = mapper;
   }
