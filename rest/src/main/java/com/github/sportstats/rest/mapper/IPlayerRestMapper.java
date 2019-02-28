@@ -7,6 +7,12 @@ import com.github.sportstats.services.model.player.NewPlayer;
 import com.github.sportstats.services.model.player.Player;
 import org.mapstruct.Mapper;
 
+/**
+ * Declares mappings between player model and view classes.
+ *
+ * @author noavarice
+ * @since 0.0.1
+ */
 @Mapper(config = DefaultMapperConfig.class)
 public interface IPlayerRestMapper {
 

@@ -3,6 +3,12 @@ package com.github.sportstats.services.model.player;
 import com.github.sportstats.commons.enumeration.Country;
 import java.time.LocalDate;
 
+/**
+ * Class to represent player to be added.
+ *
+ * @author noavarice
+ * @since 0.0.1
+ */
 public class NewPlayer {
 
   private String firstName;

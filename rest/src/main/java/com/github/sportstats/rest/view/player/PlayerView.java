@@ -5,6 +5,12 @@ import com.github.sportstats.commons.util.DateTimeUtils;
 import com.github.sportstats.rest.view.SimpleView;
 import java.time.LocalDate;
 
+/**
+ * View containing full information about existing player.
+ *
+ * @author noavarice
+ * @since 0.0.1
+ */
 public class PlayerView {
 
   private int id;

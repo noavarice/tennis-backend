@@ -2,6 +2,11 @@ package com.github.sportstats.commons.enumeration;
 
 import java.util.Optional;
 
+/**
+ * Represents available choices for country value.
+ *
+ * @author noavarice
+ */
 public enum Country implements IIdentifiedEnum {
 
   AF(1, "AF", "Afghanistan"),

@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Entry point for various player requests (create, update, etc).
+ *
+ * @author noavarice
+ * @since 0.0.1
+ */
 @RestController
 @RequestMapping(path = "/players")
 @Validated

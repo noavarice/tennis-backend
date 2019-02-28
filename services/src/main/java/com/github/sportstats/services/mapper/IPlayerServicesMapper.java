@@ -8,6 +8,12 @@ import com.github.sportstats.services.model.player.Player;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+/**
+ * Declares mappings between various player classes.
+ *
+ * @author noavarice
+ * @since 0.0.1
+ */
 @Mapper(config = DefaultMapperConfig.class, uses = {
     CountryMapper.class,
 })

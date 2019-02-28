@@ -8,6 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+/**
+ * Player {@link Entity entity} class.
+ *
+ * @author noavarice
+ * @since 0.0.1
+ */
 @Entity(name = "players")
 public class PlayerEntity implements IEntity {
 

@@ -7,6 +7,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+/**
+ * Contains various {@link ExceptionHandler exception handlers}.
+ *
+ * @author noavarice
+ * @since 0.0.1
+ */
 @ControllerAdvice
 public class DefaultExceptionHandlers {
 

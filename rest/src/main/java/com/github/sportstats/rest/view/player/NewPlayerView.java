@@ -13,6 +13,12 @@ import com.github.sportstats.rest.validation.group.BuiltIn;
 import java.time.LocalDate;
 import javax.validation.constraints.*;
 
+/**
+ * Input view containing information about adding player.
+ *
+ * @author noavarice
+ * @since 0.0.1
+ */
 public class NewPlayerView {
 
   @NotNull(

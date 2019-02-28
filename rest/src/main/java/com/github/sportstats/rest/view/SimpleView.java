@@ -1,5 +1,11 @@
 package com.github.sportstats.rest.view;
 
+/**
+ * Utility view for different purpose (for example, for enum values).
+ *
+ * @author noavarice
+ * @since 0.0.1
+ */
 public class SimpleView {
 
   private int id;

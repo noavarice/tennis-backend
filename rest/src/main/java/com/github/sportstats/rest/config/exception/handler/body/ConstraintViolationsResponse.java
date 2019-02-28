@@ -5,6 +5,12 @@ import java.util.List;
 import java.util.Set;
 import javax.validation.ConstraintViolation;
 
+/**
+ * Wrapper class for several constraint violations.
+ *
+ * @author noavarice
+ * @since 0.0.1
+ */
 public class ConstraintViolationsResponse {
 
   private final List<ConstraintViolationBody> violations;

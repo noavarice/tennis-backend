@@ -1,5 +1,13 @@
 package com.github.sportstats.rest.config.exception.handler.body;
 
+import javax.validation.ConstraintViolation;
+
+/**
+ * Response body for single {@link ConstraintViolation constraint violation}.
+ *
+ * @author noavarice
+ * @since 0.0.1
+ */
 class ConstraintViolationBody {
 
   private final String propertyPath;

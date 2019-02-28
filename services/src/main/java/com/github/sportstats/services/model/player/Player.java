@@ -2,9 +2,14 @@ package com.github.sportstats.services.model.player;
 
 import com.github.sportstats.commons.enumeration.Country;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
+/**
+ * Represents information about already existing player.
+ *
+ * @author noavarice
+ * @since 0.0.1
+ */
 public class Player {
 
   private int id;
