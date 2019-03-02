@@ -1,12 +1,9 @@
 package com.github.sportstats.provider.model;
 
+import com.github.sportstats.commons.enumeration.Country;
+import com.github.sportstats.provider.converter.CountryAttributeConverter;
 import java.time.LocalDate;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 
 /**
  * Player {@link Entity entity} class.
@@ -32,7 +29,9 @@ public class PlayerEntity implements IEntity {
   @Column(updatable = false)
   private boolean male;
 
-  private int countryId;
+  @Convert(converter = CountryAttributeConverter.class)
+  @Column(name = "country_id", nullable = false)
+  private Country country;
 
   @Column(nullable = false)
   private LocalDate birthDate;
@@ -69,12 +68,12 @@ public class PlayerEntity implements IEntity {
     this.male = male;
   }
 
-  public int getCountryId() {
-    return countryId;
+  public Country getCountry() {
+    return country;
   }
 
-  public void setCountryId(int countryId) {
-    this.countryId = countryId;
+  public void setCountry(Country country) {
+    this.country = country;
   }
 
   public LocalDate getBirthDate() {
