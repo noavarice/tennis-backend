@@ -57,6 +57,11 @@ public class PlayerServiceImpl implements IPlayerService {
   }
 
   @Override
+  public Player getById(int playerId) {
+    return mapper.toFullModel(repository.getOne(playerId));
+  }
+
+  @Override
   public boolean exists(int id) {
     return repository.existsById(id);
   }

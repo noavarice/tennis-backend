@@ -49,17 +49,32 @@ public class PlayerController {
     return mapper.toView(service.create(mapper.toModel(view)));
   }
 
+  /**
+   * Checks if player with specified ID exists.
+   *
+   * @param playerId Player ID
+   * @throws NotFoundException In case player with such ID is not found
+   */
+  private void checkPlayerExists(final int playerId) {
+    if (!service.exists(playerId)) {
+      throw new NotFoundException(ResourceType.PLAYER, playerId);
+    }
+  }
+
   @PutMapping("/{playerId}")
   public PlayerView update(
       @PathVariable("playerId") final int playerId,
       @RequestBody final UpdatedPlayerView player
   ) {
+    checkPlayerExists(playerId);
     player.setId(playerId);
-    if (!service.exists(playerId)) {
-      throw new NotFoundException(ResourceType.PLAYER, playerId);
-    }
-
     validatorProxy.validate(player, DefaultOrder.class);
     return mapper.toView(service.update(mapper.toModel(player)));
+  }
+
+  @GetMapping(path = "/{playerId}")
+  public PlayerView getById(@PathVariable("playerId") final int playerId) {
+    checkPlayerExists(playerId);
+    return mapper.toView(service.getById(playerId));
   }
 }

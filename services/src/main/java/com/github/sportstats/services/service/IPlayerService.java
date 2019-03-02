@@ -27,4 +27,12 @@ public interface IPlayerService extends ExistsByIdService {
    * @return Updated player
    */
   Player update(final UpdatedPlayer player);
+
+  /**
+   * Retrieves player with specified ID.
+   *
+   * @param playerId Player ID
+   * @return {@literal null} if player is not found and value otherwise
+   */
+  Player getById(final int playerId);
 }
