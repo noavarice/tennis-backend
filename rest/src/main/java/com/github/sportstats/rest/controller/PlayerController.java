@@ -1,6 +1,8 @@
 package com.github.sportstats.rest.controller;
 
+import com.github.sportstats.rest.exception.NotFoundException;
 import com.github.sportstats.rest.mapper.IPlayerRestMapper;
+import com.github.sportstats.rest.validation.ResourceType;
 import com.github.sportstats.rest.validation.ValidatorProxy;
 import com.github.sportstats.rest.validation.group.sequence.DefaultOrder;
 import com.github.sportstats.rest.view.player.NewPlayerView;
@@ -53,6 +55,10 @@ public class PlayerController {
       @RequestBody final UpdatedPlayerView player
   ) {
     player.setId(playerId);
+    if (!service.exists(playerId)) {
+      throw new NotFoundException(ResourceType.PLAYER, playerId);
+    }
+
     validatorProxy.validate(player, DefaultOrder.class);
     return mapper.toView(service.update(mapper.toModel(player)));
   }

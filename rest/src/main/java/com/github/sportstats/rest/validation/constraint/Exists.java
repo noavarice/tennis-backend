@@ -1,5 +1,6 @@
 package com.github.sportstats.rest.validation.constraint;
 
+import com.github.sportstats.rest.validation.ResourceType;
 import com.github.sportstats.rest.validation.constraint.validator.ExistsById;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -22,18 +23,9 @@ import javax.validation.Payload;
 public @interface Exists {
 
   /**
-   * Types of resources.
-   */
-  enum Type {
-
-    PLAYER,
-    ;
-  }
-
-  /**
    * Shows how to interpret validation resource identifier.
    */
-  Type type();
+  ResourceType type();
 
   String message();
 

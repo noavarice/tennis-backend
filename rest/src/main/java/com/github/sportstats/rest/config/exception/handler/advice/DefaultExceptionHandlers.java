@@ -1,6 +1,8 @@
 package com.github.sportstats.rest.config.exception.handler.advice;
 
 import com.github.sportstats.rest.config.exception.handler.body.ConstraintViolationsResponse;
+import com.github.sportstats.rest.config.exception.handler.body.NotFoundResponseBody;
+import com.github.sportstats.rest.exception.NotFoundException;
 import javax.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,5 +23,12 @@ public class DefaultExceptionHandlers {
     return ResponseEntity
         .status(HttpStatus.BAD_REQUEST)
         .body(ConstraintViolationsResponse.of(e.getConstraintViolations()));
+  }
+
+  @ExceptionHandler(NotFoundException.class)
+  public ResponseEntity<NotFoundResponseBody> notFound(final NotFoundException e) {
+    return ResponseEntity
+        .status(HttpStatus.NOT_FOUND)
+        .body(new NotFoundResponseBody(e.getType().getName(), e.getResourceId()));
   }
 }
