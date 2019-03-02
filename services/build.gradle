@@ -5,9 +5,12 @@ plugins {
 dependencies {
   implementation project(':provider')
   implementation project(':commons')
+  implementation project(':commons-mapstruct')
 
   implementation "org.springframework.boot:spring-boot-autoconfigure:$spring_boot_ver"
   implementation "ch.qos.logback:logback-classic:$logback_ver"
+  implementation "org.mapstruct:mapstruct:$mapstruct_ver"
+  annotationProcessor "org.mapstruct:mapstruct-processor:$mapstruct_ver"
 
   testImplementation "junit:junit:$junit_ver"
 }

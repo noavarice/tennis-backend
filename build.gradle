@@ -26,15 +26,6 @@ subprojects {
   apply plugin: 'java'
 
   version = project.version
-
-  if (project.name in ['rest', 'services']) {
-    dependencies {
-      implementation project(':commons')
-
-      implementation "org.mapstruct:mapstruct:$mapstruct_ver"
-      annotationProcessor "org.mapstruct:mapstruct-processor:$mapstruct_ver"
-    }
-  }
 }
 
 dependencies {

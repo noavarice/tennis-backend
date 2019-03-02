@@ -1,6 +1,6 @@
 package com.github.sportstats.services.mapper;
 
-import com.github.sportstats.commons.mapper.config.DefaultMapperConfig;
+import com.github.sportstats.commons.mapstruct.config.DefaultMapperConfig;
 import com.github.sportstats.provider.model.PlayerEntity;
 import com.github.sportstats.services.model.player.NewPlayer;
 import com.github.sportstats.services.model.player.Player;
