@@ -6,6 +6,7 @@ dependencies {
   implementation project(':provider')
   implementation project(':commons')
 
+  implementation "org.springframework.boot:spring-boot-autoconfigure:$spring_boot_ver"
   implementation "ch.qos.logback:logback-classic:$logback_ver"
 
   testImplementation "junit:junit:$junit_ver"
