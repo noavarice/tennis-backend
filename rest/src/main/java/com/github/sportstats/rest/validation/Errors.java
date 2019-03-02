@@ -20,4 +20,6 @@ public final class Errors {
   public static final String INVALID_SIZE = "_invalidSize";
 
   public static final String NON_PAST = "_pastDate";
+
+  public static final String NOT_EXISTS = "_notExists";
 }

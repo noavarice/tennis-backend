@@ -2,6 +2,7 @@ package com.github.sportstats.rest.validation.group.sequence;
 
 import com.github.sportstats.rest.validation.group.BuiltIn;
 import com.github.sportstats.rest.validation.group.Custom;
+import com.github.sportstats.rest.validation.group.Required;
 import javax.validation.GroupSequence;
 import javax.validation.groups.Default;
 
@@ -12,6 +13,7 @@ import javax.validation.groups.Default;
  * @since 0.0.1
  */
 @GroupSequence({
+    Required.class,
     BuiltIn.class,
     Custom.class,
     Default.class,

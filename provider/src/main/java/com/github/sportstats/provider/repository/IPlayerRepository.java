@@ -17,4 +17,17 @@ public interface IPlayerRepository {
    * @see JpaRepository#save(Object)
    */
   PlayerEntity save(final PlayerEntity entity);
+
+  /**
+   * @see JpaRepository#getOne(Object)
+   */
+  PlayerEntity getOne(final int id);
+
+  /**
+   * Checks if {@link PlayerEntity} with specified {@code id} exists.
+   *
+   * @param id Player ID
+   * @return {@literal true} if player with such ID exists and {@literal false} otherwise
+   */
+  boolean existsById(final int id);
 }

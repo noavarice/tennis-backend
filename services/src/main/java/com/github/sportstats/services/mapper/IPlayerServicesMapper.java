@@ -4,8 +4,10 @@ import com.github.sportstats.commons.mapstruct.config.DefaultMapperConfig;
 import com.github.sportstats.provider.model.PlayerEntity;
 import com.github.sportstats.services.model.player.NewPlayer;
 import com.github.sportstats.services.model.player.Player;
+import com.github.sportstats.services.model.player.UpdatedPlayer;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
 /**
  * Declares mappings between various player classes.
@@ -18,6 +20,10 @@ public interface IPlayerServicesMapper {
 
   @Mapping(target = "id", ignore = true)
   PlayerEntity toEntity(final NewPlayer player);
+
+  @Mapping(target = "id", ignore = true)
+  @Mapping(target = "male", ignore = true)
+  void merge(final UpdatedPlayer player, @MappingTarget final PlayerEntity entity);
 
   Player toFullModel(final PlayerEntity entity);
 }

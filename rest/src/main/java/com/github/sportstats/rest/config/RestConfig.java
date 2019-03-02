@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
     "com.github.sportstats.rest.controller",
     "com.github.sportstats.rest.exception.handler.advice",
     "com.github.sportstats.rest.jackson.serialization",
+    "com.github.sportstats.rest.validation",
     "com.github.sportstats.services.config",
     "com.github.sportstats.commons.config",
 })

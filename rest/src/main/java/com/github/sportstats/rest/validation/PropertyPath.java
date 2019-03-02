@@ -16,6 +16,8 @@ public final class PropertyPath {
    */
   public static final class Player {
 
+    public static final String PLAYER = "player";
+
     public static final String FIRST_NAME = "player.firstName";
 
     public static final String LAST_NAME = "player.lastName";
