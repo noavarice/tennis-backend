@@ -6,6 +6,7 @@ import com.github.sportstats.services.mapper.IPlayerServicesMapper;
 import com.github.sportstats.services.model.player.NewPlayer;
 import com.github.sportstats.services.model.player.Player;
 import com.github.sportstats.services.model.player.UpdatedPlayer;
+import com.github.sportstats.services.service.AbstractPagingService;
 import com.github.sportstats.services.service.IPlayerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +20,9 @@ import org.springframework.stereotype.Service;
  * @since 0.0.1
  */
 @Service
-public class PlayerServiceImpl implements IPlayerService {
+public class PlayerServiceImpl
+    extends AbstractPagingService<Player, PlayerEntity>
+    implements IPlayerService {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(PlayerServiceImpl.class);
 
@@ -29,8 +32,9 @@ public class PlayerServiceImpl implements IPlayerService {
 
   @Autowired
   public PlayerServiceImpl(
-    final IPlayerRepository repository,
-    final IPlayerServicesMapper mapper) {
+      final IPlayerRepository repository,
+      final IPlayerServicesMapper mapper) {
+    super(repository, mapper);
     this.repository = repository;
     this.mapper = mapper;
   }
@@ -38,7 +42,7 @@ public class PlayerServiceImpl implements IPlayerService {
   @Override
   public Player create(final NewPlayer player) {
     LOGGER.info("[Player] Creating new player");
-    final Player createdPlayer = mapper.toFullModel(repository.save(mapper.toEntity(player)));
+    final Player createdPlayer = mapper.toModel(repository.save(mapper.toEntity(player)));
     LOGGER.info("[Player ID={}] Created {}", createdPlayer.getId(), createdPlayer);
     return createdPlayer;
   }
@@ -51,7 +55,7 @@ public class PlayerServiceImpl implements IPlayerService {
         .findById(playerId)
         .orElseThrow(() -> new IllegalArgumentException("Unknown player with ID=" + playerId));
     mapper.merge(player, entity);
-    final Player updatedPlayer = mapper.toFullModel(repository.save(entity));
+    final Player updatedPlayer = mapper.toModel(repository.save(entity));
     LOGGER.info("[Player ID={}] Updated {}", playerId, updatedPlayer);
     return updatedPlayer;
   }
@@ -60,7 +64,7 @@ public class PlayerServiceImpl implements IPlayerService {
   public Player getById(final int playerId) {
     return repository
         .findById(playerId)
-        .map(mapper::toFullModel)
+        .map(mapper::toModel)
         .orElseThrow(() -> new IllegalArgumentException("Unknown player with ID=" + playerId));
   }
 

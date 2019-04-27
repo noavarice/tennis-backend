@@ -16,7 +16,7 @@ import org.mapstruct.MappingTarget;
  * @since 0.0.1
  */
 @Mapper(config = DefaultMapperConfig.class)
-public interface IPlayerServicesMapper {
+public interface IPlayerServicesMapper extends IBaseMapper<Player, PlayerEntity> {
 
   @Mapping(target = "id", ignore = true)
   PlayerEntity toEntity(final NewPlayer player);
@@ -24,6 +24,4 @@ public interface IPlayerServicesMapper {
   @Mapping(target = "id", ignore = true)
   @Mapping(target = "male", ignore = true)
   void merge(final UpdatedPlayer player, @MappingTarget final PlayerEntity entity);
-
-  Player toFullModel(final PlayerEntity entity);
 }

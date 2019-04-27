@@ -13,5 +13,8 @@ dependencies {
   implementation "org.mapstruct:mapstruct:$mapstruct_ver"
   annotationProcessor "org.mapstruct:mapstruct-processor:$mapstruct_ver"
 
+  // to make accessible various Spring Data specific implementation classes
+  compileClasspath "org.springframework.data:spring-data-commons:$spring_boot_ver"
+
   testImplementation "junit:junit:$junit_ver"
 }

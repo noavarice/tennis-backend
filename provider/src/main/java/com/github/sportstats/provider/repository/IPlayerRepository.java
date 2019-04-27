@@ -12,7 +12,7 @@ import org.springframework.data.repository.RepositoryDefinition;
  * @since 0.0.1
  */
 @RepositoryDefinition(domainClass = PlayerEntity.class, idClass = Integer.class)
-public interface IPlayerRepository {
+public interface IPlayerRepository extends IPagingRepository<PlayerEntity> {
 
   /**
    * @see JpaRepository#save(Object)
