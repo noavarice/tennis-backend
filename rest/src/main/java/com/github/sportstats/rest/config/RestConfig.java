@@ -17,5 +17,6 @@ import org.springframework.context.annotation.Configuration;
     "com.github.sportstats.rest.validation",
     "com.github.sportstats.services.config",
     "com.github.sportstats.commons.config",
+    "com.github.sportstats.rest.mapper.impl",
 })
 public class RestConfig {}
