@@ -1,6 +1,7 @@
 package com.github.sportstats.provider.repository;
 
 import com.github.sportstats.provider.model.PlayerEntity;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.RepositoryDefinition;
 
@@ -19,9 +20,9 @@ public interface IPlayerRepository {
   PlayerEntity save(final PlayerEntity entity);
 
   /**
-   * @see JpaRepository#getOne(Object)
+   * @see JpaRepository#findById(Object)
    */
-  PlayerEntity getOne(final int id);
+  Optional<PlayerEntity> findById(final int id);
 
   /**
    * Checks if {@link PlayerEntity} with specified {@code id} exists.

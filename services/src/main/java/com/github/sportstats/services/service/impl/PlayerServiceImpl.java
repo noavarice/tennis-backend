@@ -11,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Default implementation of {@link IPlayerService}.
@@ -45,11 +44,12 @@ public class PlayerServiceImpl implements IPlayerService {
   }
 
   @Override
-  @Transactional
   public Player update(final UpdatedPlayer player) {
     final int playerId = player.getId();
     LOGGER.info("[Player ID={}] Updating player", playerId);
-    final PlayerEntity entity = repository.getOne(playerId);
+    final PlayerEntity entity = repository
+        .findById(playerId)
+        .orElseThrow(() -> new IllegalArgumentException("Unknown player with ID=" + playerId));
     mapper.merge(player, entity);
     final Player updatedPlayer = mapper.toFullModel(repository.save(entity));
     LOGGER.info("[Player ID={}] Updated {}", playerId, updatedPlayer);
@@ -57,12 +57,15 @@ public class PlayerServiceImpl implements IPlayerService {
   }
 
   @Override
-  public Player getById(int playerId) {
-    return mapper.toFullModel(repository.getOne(playerId));
+  public Player getById(final int playerId) {
+    return repository
+        .findById(playerId)
+        .map(mapper::toFullModel)
+        .orElseThrow(() -> new IllegalArgumentException("Unknown player with ID=" + playerId));
   }
 
   @Override
-  public boolean exists(int id) {
+  public boolean exists(final int id) {
     return repository.existsById(id);
   }
 }

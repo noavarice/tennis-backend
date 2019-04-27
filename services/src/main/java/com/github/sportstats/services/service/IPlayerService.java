@@ -25,6 +25,7 @@ public interface IPlayerService extends ExistsByIdService {
    *
    * @param player Updated player information
    * @return Updated player
+   * @throws IllegalArgumentException If player with such {@code playerId} does not exist
    */
   Player update(final UpdatedPlayer player);
 
@@ -32,7 +33,8 @@ public interface IPlayerService extends ExistsByIdService {
    * Retrieves player with specified ID.
    *
    * @param playerId Player ID
-   * @return {@literal null} if player is not found and value otherwise
+   * @return Player information
+   * @throws IllegalArgumentException If player with such {@code playerId} does not exist
    */
   Player getById(final int playerId);
 }
