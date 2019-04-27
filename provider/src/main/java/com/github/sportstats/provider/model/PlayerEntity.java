@@ -15,8 +15,7 @@ import javax.persistence.*;
 public class PlayerEntity implements IEntity {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @SequenceGenerator(name = "players_seq")
+  @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "players_seq")
   @Column(name = "player_id")
   private Integer id;
 
