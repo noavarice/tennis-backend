@@ -91,10 +91,10 @@ public class Player {
 
   @Override
   public String toString() {
-    return "Player{id=" + id + ", firstName='" + firstName +
-        "', lastName='" + lastName +
-        "', country=" + country.getCode() +
-        ", birthDate=" + birthDate +
+    return "Player{id=" + id + ", " + firstName +
+        " " + lastName +
+        ", " + country.getCode() +
+        ", birth date: " + birthDate +
         ", " + (male ? "male" : "female") + '}';
   }
 }

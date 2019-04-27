@@ -59,7 +59,7 @@ public abstract class AbstractPlayerView {
   @Past(
       message = PropertyPath.Player.BIRTH_DATE + Errors.NON_PAST,
       groups = BuiltIn.class)
-  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DateTimeUtils.ISO_DATE_PATTERN)
+  @JsonFormat(pattern = DateTimeUtils.ISO_DATE_PATTERN)
   private LocalDate birthDate;
 
   public String getFirstName() {
