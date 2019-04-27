@@ -4,6 +4,7 @@ package com.github.sportstats.rest.jackson.serialization;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import com.github.sportstats.commons.enumeration.Country;
 import java.io.IOException;
 import org.springframework.stereotype.Component;
@@ -23,6 +24,11 @@ public class CountryDeserializer extends StdDeserializer<Country> {
 
   @Override
   public Country deserialize(JsonParser p, DeserializationContext context) throws IOException {
-    return Country.valueOf(p.getValueAsString());
+    final String code = p.getValueAsString();
+    try {
+      return Country.valueOf(code);
+    } catch (final IllegalArgumentException iae) {
+      throw InvalidFormatException.from(p, Country.class, "Unknown country code: [" + code + ']');
+    }
   }
 }
