@@ -1,2 +1,7 @@
-rootProject.name = 'tennis-backend'
+rootProject.name = 'root'
+rootProject.buildFileName = rootProject.name + '.gradle'
 include 'rest', 'services', 'provider', 'commons', 'commons-mapstruct'
+
+rootProject.children.each {
+  it.buildFileName = it.name + '.gradle'
+}
