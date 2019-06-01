@@ -1,7 +1,6 @@
 package com.github.sportstats.provider.model;
 
 import com.github.sportstats.commons.enumeration.Country;
-import com.github.sportstats.provider.converter.CountryAttributeConverter;
 import java.time.LocalDate;
 import javax.persistence.*;
 
@@ -28,7 +27,6 @@ public class PlayerEntity implements IEntity {
   @Column(updatable = false)
   private boolean male;
 
-  @Convert(converter = CountryAttributeConverter.class)
   @Column(name = "country_id", nullable = false)
   private Country country;
 

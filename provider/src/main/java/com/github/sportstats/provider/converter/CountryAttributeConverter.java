@@ -3,6 +3,7 @@ package com.github.sportstats.provider.converter;
 import com.github.sportstats.commons.enumeration.Country;
 import java.util.Objects;
 import javax.persistence.AttributeConverter;
+import javax.persistence.Converter;
 
 /**
  * {@link AttributeConverter} for {@link Country} enum.
@@ -10,6 +11,7 @@ import javax.persistence.AttributeConverter;
  * @author noavarice
  * @since 0.0.1
  */
+@Converter(autoApply = true)
 public class CountryAttributeConverter implements AttributeConverter<Country, Integer> {
 
   @Override
