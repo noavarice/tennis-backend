@@ -1,4 +1,4 @@
-package com.github.sportstats.rest.jackson.serialization;
+package com.github.sportstats.rest.jackson.deserialize;
 
 
 import com.fasterxml.jackson.core.JsonParser;

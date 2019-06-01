@@ -15,7 +15,7 @@ public final class DateTimeUtils {
 
   /**
    * ISO format for date values.
-   * Primary used for {@link LocalDate} values deserialization from JSON.
+   * Primary used for {@link LocalDate} values deserialize from JSON.
    *
    * @see DateTimeFormatter
    */

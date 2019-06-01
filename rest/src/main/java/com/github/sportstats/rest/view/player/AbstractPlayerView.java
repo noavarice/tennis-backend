@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.github.sportstats.commons.enumeration.Country;
 import com.github.sportstats.commons.util.DateTimeUtils;
-import com.github.sportstats.rest.jackson.serialization.CountryDeserializer;
+import com.github.sportstats.rest.jackson.deserialize.CountryDeserializer;
 import com.github.sportstats.rest.validation.ConstraintConstants;
 import com.github.sportstats.rest.validation.Errors;
 import com.github.sportstats.rest.validation.PropertyPath;

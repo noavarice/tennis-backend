@@ -1,8 +1,10 @@
 package com.github.sportstats.rest.view.player;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.github.sportstats.commons.enumeration.Country;
 import com.github.sportstats.commons.util.DateTimeUtils;
-import com.github.sportstats.rest.view.SimpleView;
+import com.github.sportstats.rest.jackson.serialize.CountrySerializer;
 import java.time.LocalDate;
 
 /**
@@ -19,7 +21,8 @@ public class PlayerView {
 
   private String lastName;
 
-  private SimpleView country;
+  @JsonSerialize(using = CountrySerializer.class)
+  private Country country;
 
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = DateTimeUtils.ISO_DATE_PATTERN)
   private LocalDate birthDate;
@@ -50,11 +53,11 @@ public class PlayerView {
     this.lastName = lastName;
   }
 
-  public SimpleView getCountry() {
+  public Country getCountry() {
     return country;
   }
 
-  public void setCountry(SimpleView country) {
+  public void setCountry(final Country country) {
     this.country = country;
   }
 
