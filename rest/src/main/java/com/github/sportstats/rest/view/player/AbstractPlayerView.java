@@ -1,10 +1,8 @@
 package com.github.sportstats.rest.view.player;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.github.sportstats.commons.enumeration.Country;
 import com.github.sportstats.commons.util.DateTimeUtils;
-import com.github.sportstats.rest.jackson.deserialize.CountryDeserializer;
 import com.github.sportstats.rest.validation.ConstraintConstants;
 import com.github.sportstats.rest.validation.Errors;
 import com.github.sportstats.rest.validation.PropertyPath;
@@ -50,7 +48,6 @@ public abstract class AbstractPlayerView {
   @NotNull(
       message = PropertyPath.Player.COUNTRY + Errors.IS_NULL,
       groups = BuiltIn.class)
-  @JsonDeserialize(using = CountryDeserializer.class)
   private Country country;
 
   @NotNull(
