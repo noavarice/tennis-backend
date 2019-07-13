@@ -9,9 +9,7 @@ import com.github.sportstats.rest.util.PageView;
 import com.github.sportstats.rest.validation.ResourceType;
 import com.github.sportstats.rest.validation.ValidatorProxy;
 import com.github.sportstats.rest.validation.group.sequence.DefaultOrder;
-import com.github.sportstats.rest.view.player.NewPlayerView;
-import com.github.sportstats.rest.view.player.PlayerView;
-import com.github.sportstats.rest.view.player.UpdatedPlayerView;
+import com.github.sportstats.rest.view.player.*;
 import com.github.sportstats.services.service.IPlayerService;
 import com.github.sportstats.services.util.PagingParams;
 import com.github.sportstats.services.util.SortParams;
@@ -55,7 +53,7 @@ public class PlayerController {
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   @Validated(DefaultOrder.class)
-  public PlayerView create(@RequestBody @Valid final NewPlayerView view) {
+  public PlayerView create(@RequestBody @Valid final ImmutableNewPlayerView view) {
     return mapper.toView(service.create(mapper.toModel(view)));
   }
 
@@ -74,12 +72,12 @@ public class PlayerController {
   @PutMapping("/{playerId}")
   public PlayerView update(
       @PathVariable("playerId") final int playerId,
-      @RequestBody final UpdatedPlayerView player
+      @RequestBody final ImmutableUpdatedPlayerView player
   ) {
     checkPlayerExists(playerId);
-    player.setId(playerId);
-    validatorProxy.validate(player, DefaultOrder.class);
-    return mapper.toView(service.update(mapper.toModel(player)));
+    final UpdatedPlayerView playerWithId = player.withId(playerId);
+    validatorProxy.validate(playerWithId, DefaultOrder.class);
+    return mapper.toView(service.update(mapper.toModel(playerWithId)));
   }
 
   @GetMapping(path = "/{playerId}")

@@ -4,12 +4,15 @@ plugins {
 
 ext {
   validator_ver = '6.0.15.Final'
+  immutables = '2.7.4'
 }
 
 dependencies {
   implementation project(':services')
   implementation project(':commons')
   implementation project(':commons-mapstruct')
+  compileOnly "org.immutables:value:$immutables"
+  annotationProcessor "org.immutables:value:$immutables"
 
   implementation "org.springframework.boot:spring-boot-starter-web:$spring_boot_ver"
   implementation "org.hibernate.validator:hibernate-validator:$validator_ver"

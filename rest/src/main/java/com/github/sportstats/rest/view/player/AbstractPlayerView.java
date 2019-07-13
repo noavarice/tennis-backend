@@ -17,7 +17,7 @@ import javax.validation.constraints.*;
  * @author noavarice
  * @since 0.0.1
  */
-public abstract class AbstractPlayerView {
+public interface AbstractPlayerView {
 
   @NotBlank(
       message = PropertyPath.Player.FIRST_NAME + Errors.IS_EMPTY,
@@ -30,7 +30,7 @@ public abstract class AbstractPlayerView {
       max = ConstraintConstants.Player.NAME_MAX_LENGTH,
       message = PropertyPath.Player.FIRST_NAME + Errors.INVALID_SIZE,
       groups = BuiltIn.class)
-  private String firstName;
+  String getFirstName();
 
   @NotBlank(
       message = PropertyPath.Player.LAST_NAME + Errors.IS_EMPTY,
@@ -43,12 +43,12 @@ public abstract class AbstractPlayerView {
       max = ConstraintConstants.Player.NAME_MAX_LENGTH,
       message = PropertyPath.Player.LAST_NAME + Errors.INVALID_SIZE,
       groups = BuiltIn.class)
-  private String lastName;
+  String getLastName();
 
   @NotNull(
       message = PropertyPath.Player.COUNTRY + Errors.IS_NULL,
       groups = BuiltIn.class)
-  private Country country;
+  Country getCountry();
 
   @NotNull(
       message = PropertyPath.Player.BIRTH_DATE + Errors.IS_NULL,
@@ -57,37 +57,5 @@ public abstract class AbstractPlayerView {
       message = PropertyPath.Player.BIRTH_DATE + Errors.NON_PAST,
       groups = BuiltIn.class)
   @JsonFormat(pattern = DateTimeUtils.ISO_DATE_PATTERN)
-  private LocalDate birthDate;
-
-  public String getFirstName() {
-    return firstName;
-  }
-
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
-
-  public String getLastName() {
-    return lastName;
-  }
-
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
-  }
-
-  public Country getCountry() {
-    return country;
-  }
-
-  public void setCountry(Country country) {
-    this.country = country;
-  }
-
-  public LocalDate getBirthDate() {
-    return birthDate;
-  }
-
-  public void setBirthDate(LocalDate birthDate) {
-    this.birthDate = birthDate;
-  }
+  LocalDate getBirthDate();
 }

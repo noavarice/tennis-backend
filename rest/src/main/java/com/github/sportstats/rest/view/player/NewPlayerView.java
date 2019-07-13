@@ -1,9 +1,11 @@
 package com.github.sportstats.rest.view.player;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.github.sportstats.rest.validation.Errors;
 import com.github.sportstats.rest.validation.PropertyPath;
 import com.github.sportstats.rest.validation.group.BuiltIn;
 import javax.validation.constraints.NotNull;
+import org.immutables.value.Value;
 
 /**
  * Input view containing information about adding player.
@@ -11,18 +13,12 @@ import javax.validation.constraints.NotNull;
  * @author noavarice
  * @since 0.0.1
  */
-public class NewPlayerView extends AbstractPlayerView {
+@Value.Immutable
+@JsonDeserialize(builder = ImmutableNewPlayerView.Builder.class)
+public interface NewPlayerView extends AbstractPlayerView {
 
   @NotNull(
       message = PropertyPath.Player.MALE + Errors.IS_NULL,
       groups = BuiltIn.class)
-  private Boolean male;
-
-  public Boolean getMale() {
-    return male;
-  }
-
-  public void setMale(Boolean male) {
-    this.male = male;
-  }
+  Boolean getMale();
 }

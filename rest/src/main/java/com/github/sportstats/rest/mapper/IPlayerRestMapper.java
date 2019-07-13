@@ -10,6 +10,7 @@ import com.github.sportstats.services.model.player.Player;
 import com.github.sportstats.services.model.player.UpdatedPlayer;
 import com.github.sportstats.services.util.Page;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 /**
  * Declares mappings between player model and view classes.
@@ -22,6 +23,7 @@ public interface IPlayerRestMapper {
 
   NewPlayer toModel(final NewPlayerView view);
 
+  @Mapping(target = "id", expression = "java(view.getId().getAsInt())")
   UpdatedPlayer toModel(final UpdatedPlayerView view);
 
   PlayerView toView(final Player model);
