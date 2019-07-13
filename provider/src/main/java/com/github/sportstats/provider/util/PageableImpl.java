@@ -18,11 +18,11 @@ public class PageableImpl implements Pageable {
   private Sort sort = new Sort(Sort.Direction.ASC, "id");
 
   public void setPageNumber(final int pageNumber) {
-    this.pageNumber = pageNumber;
+    this.pageNumber = pageNumber < 1 ? 1 : pageNumber;
   }
 
   public void setPageSize(final int pageSize) {
-    this.pageSize = pageSize;
+    this.pageSize = pageSize < 0 ? 10 : pageSize;
   }
 
   public void setSort(final Sort sort) {

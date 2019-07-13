@@ -41,11 +41,15 @@ public abstract class AbstractPagingService<T, E> {
     final var pageable = new PageableImpl();
     pageable.setPageSize(paging.getPageSize());
     pageable.setPageNumber(paging.getPageNumber());
-    final SortDirection dirParam = sort.getDirection();
-    final Sort.Direction dir = dirParam == null || dirParam == SortDirection.ASC
-        ? Sort.Direction.ASC
-        : Sort.Direction.DESC;
-    pageable.setSort(Sort.by(dir, sort.getSortBy()));
+    final String sortBy = sort.getSortBy();
+    if (sortBy != null) {
+      final SortDirection dirParam = sort.getDirection();
+      final Sort.Direction dir = dirParam == null || dirParam == SortDirection.ASC
+          ? Sort.Direction.ASC
+          : Sort.Direction.DESC;
+      pageable.setSort(Sort.by(dir, sort.getSortBy()));
+    }
+
     final var page = repository.findAll(pageable);
     return Page.of(mapper.toModels(page.getContent()), page.getTotalElements());
   }
