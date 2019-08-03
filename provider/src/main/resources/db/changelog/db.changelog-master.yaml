@@ -20,3 +20,15 @@ databaseChangeLog:
       sqlFile:
         - path: changeset/50/changeset-002.sql
         - relativeToChangelogFile: true
+  - changeSet:
+      id: 3
+      author: noavarice
+      comment: Matches schema
+      tagDatabase:
+        - tag: 0.0.1
+      sqlFile:
+        - path: changeset/50/changeset-003.sql
+        - relativeToChangelogFile: true
+      rollback:
+        - path: rollback/50/rollback-003.sql
+        - relativeToChangelogFile: true
