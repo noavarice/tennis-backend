@@ -2,11 +2,13 @@ package com.github.sportstats.rest.mapper;
 
 import com.github.sportstats.commons.mapstruct.config.DefaultMapperConfig;
 import com.github.sportstats.rest.util.PageView;
+import com.github.sportstats.rest.view.player.ImmutablePlayerListView;
 import com.github.sportstats.rest.view.player.NewPlayerView;
 import com.github.sportstats.rest.view.player.PlayerView;
 import com.github.sportstats.rest.view.player.UpdatedPlayerView;
 import com.github.sportstats.services.model.player.NewPlayer;
 import com.github.sportstats.services.model.player.Player;
+import com.github.sportstats.services.model.player.PlayerListModel;
 import com.github.sportstats.services.model.player.UpdatedPlayer;
 import com.github.sportstats.services.util.Page;
 import org.mapstruct.Mapper;
@@ -28,5 +30,5 @@ public interface IPlayerRestMapper {
 
   PlayerView toView(final Player model);
 
-  PageView<PlayerView> toView(final Page<Player> model);
+  PageView<ImmutablePlayerListView> toListViews(final Page<PlayerListModel> models);
 }

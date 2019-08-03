@@ -87,9 +87,9 @@ public class PlayerController {
   }
 
   @GetMapping
-  public PageView<PlayerView> getPaged(final PagingParamsView paging, final SortParamsView sort) {
+  public PageView<? extends PlayerListView> getPaged(final PagingParamsView paging, final SortParamsView sort) {
     final PagingParams pagingModel = paramsMapper.toModel(paging);
     final SortParams sortModel = paramsMapper.toModel(sort);
-    return mapper.toView(service.getPaged(pagingModel, sortModel));
+    return mapper.toListViews(service.getPaged(pagingModel, sortModel));
   }
 }

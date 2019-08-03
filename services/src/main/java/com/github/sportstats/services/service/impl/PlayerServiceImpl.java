@@ -1,10 +1,12 @@
 package com.github.sportstats.services.service.impl;
 
 import com.github.sportstats.provider.model.PlayerEntity;
+import com.github.sportstats.provider.projection.player.PlayerListProjection;
 import com.github.sportstats.provider.repository.IPlayerRepository;
 import com.github.sportstats.services.mapper.IPlayerServicesMapper;
 import com.github.sportstats.services.model.player.NewPlayer;
 import com.github.sportstats.services.model.player.Player;
+import com.github.sportstats.services.model.player.PlayerListModel;
 import com.github.sportstats.services.model.player.UpdatedPlayer;
 import com.github.sportstats.services.service.AbstractPagingService;
 import com.github.sportstats.services.service.IPlayerService;
@@ -21,7 +23,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PlayerServiceImpl
-    extends AbstractPagingService<Player, PlayerEntity>
+    extends AbstractPagingService<PlayerListModel, PlayerListProjection>
     implements IPlayerService {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(PlayerServiceImpl.class);

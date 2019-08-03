@@ -2,8 +2,10 @@ package com.github.sportstats.services.mapper;
 
 import com.github.sportstats.commons.mapstruct.config.DefaultMapperConfig;
 import com.github.sportstats.provider.model.PlayerEntity;
+import com.github.sportstats.provider.projection.player.PlayerListProjection;
 import com.github.sportstats.services.model.player.NewPlayer;
 import com.github.sportstats.services.model.player.Player;
+import com.github.sportstats.services.model.player.PlayerListModel;
 import com.github.sportstats.services.model.player.UpdatedPlayer;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -16,7 +18,8 @@ import org.mapstruct.MappingTarget;
  * @since 0.0.1
  */
 @Mapper(config = DefaultMapperConfig.class)
-public interface IPlayerServicesMapper extends IBaseMapper<Player, PlayerEntity> {
+public interface IPlayerServicesMapper
+    extends IBaseMapper<Player, PlayerListModel, PlayerEntity, PlayerListProjection> {
 
   @Mapping(target = "id", ignore = true)
   PlayerEntity toEntity(final NewPlayer player);

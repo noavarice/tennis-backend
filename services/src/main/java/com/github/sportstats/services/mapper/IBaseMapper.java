@@ -8,9 +8,11 @@ import java.util.List;
  * @author noavarice
  * @since 0.0.1
  * @param <M> Model type
+ * @param <LM> List model type
  * @param <E> Entity type
+ * @param <LE> List entity type
  */
-public interface IBaseMapper<M, E> {
+public interface IBaseMapper<M, LM, E, LE> {
 
   M toModel(final E entity);
 
@@ -19,4 +21,6 @@ public interface IBaseMapper<M, E> {
   E toEntity(final M model);
 
   List<E> toEntities(final Iterable<M> models);
+
+  List<LM> toListModels(final Iterable<LE> entities);
 }

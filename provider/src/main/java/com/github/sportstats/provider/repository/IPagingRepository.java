@@ -9,12 +9,12 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  *
  * @author noavarice
  * @since 0.0.1
- * @param <E> Entity type
+ * @param <T> Entity type
  */
-public interface IPagingRepository<E> {
+public interface IPagingRepository<T> {
 
   /**
    * @see PagingAndSortingRepository#findAll(Pageable)
    */
-  Page<E> findAll(final Pageable pageable);
+  Page<T> findAllProjectedBy(final Pageable pageable);
 }

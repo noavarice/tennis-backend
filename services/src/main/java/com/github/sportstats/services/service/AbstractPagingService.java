@@ -12,20 +12,20 @@ import org.springframework.data.domain.Sort;
 /**
  * Base service with paging method.
  *
- * @param <T> Type of entities service operates upon
- * @param <E> Entity type
+ * @param <LM> List type of entities service operates upon
+ * @param <LE> Entity list type
  * @author noavarice
  * @since 0.0.1
  */
-public abstract class AbstractPagingService<T, E> {
+public abstract class AbstractPagingService<LM, LE> {
 
-  private final IPagingRepository<E> repository;
+  private final IPagingRepository<LE> repository;
 
-  private final IBaseMapper<T, E> mapper;
+  private final IBaseMapper<?, LM, ?, LE> mapper;
 
   protected AbstractPagingService(
-      final IPagingRepository<E> repository,
-      final IBaseMapper<T, E> mapper) {
+      final IPagingRepository<LE> repository,
+      final IBaseMapper<?, LM, ?, LE> mapper) {
     this.repository = repository;
     this.mapper = mapper;
   }
@@ -37,7 +37,7 @@ public abstract class AbstractPagingService<T, E> {
    * @param sort Sorting parameters
    * @return Paged information
    */
-  public Page<T> getPaged(final PagingParams paging, final SortParams sort) {
+  public Page<LM> getPaged(final PagingParams paging, final SortParams sort) {
     final var pageable = new PageableImpl();
     pageable.setPageSize(paging.getPageSize());
     pageable.setPageNumber(paging.getPageNumber());
@@ -50,7 +50,10 @@ public abstract class AbstractPagingService<T, E> {
       pageable.setSort(Sort.by(dir, sort.getSortBy()));
     }
 
-    final var page = repository.findAll(pageable);
-    return Page.of(mapper.toModels(page.getContent()), page.getTotalElements());
+    final var page = repository.findAllProjectedBy(pageable);
+    return Page.of(
+        mapper.toListModels(page.getContent()),
+        page.getTotalElements(),
+        page.getTotalPages());
   }
 }

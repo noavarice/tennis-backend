@@ -14,6 +14,8 @@ public final class PageView<T> {
 
   private long total;
 
+  private long totalPages;
+
   public List<T> getItems() {
     return items;
   }
@@ -28,5 +30,13 @@ public final class PageView<T> {
 
   public void setTotal(final long total) {
     this.total = total;
+  }
+
+  public long getTotalPages() {
+    return totalPages;
+  }
+
+  public void setTotalPages(final long totalPages) {
+    this.totalPages = totalPages;
   }
 }

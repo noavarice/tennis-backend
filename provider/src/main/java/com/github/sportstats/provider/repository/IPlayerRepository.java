@@ -1,6 +1,7 @@
 package com.github.sportstats.provider.repository;
 
 import com.github.sportstats.provider.model.PlayerEntity;
+import com.github.sportstats.provider.projection.player.PlayerListProjection;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.RepositoryDefinition;
@@ -12,7 +13,7 @@ import org.springframework.data.repository.RepositoryDefinition;
  * @since 0.0.1
  */
 @RepositoryDefinition(domainClass = PlayerEntity.class, idClass = Integer.class)
-public interface IPlayerRepository extends IPagingRepository<PlayerEntity> {
+public interface IPlayerRepository extends IPagingRepository<PlayerListProjection> {
 
   /**
    * @see JpaRepository#save(Object)

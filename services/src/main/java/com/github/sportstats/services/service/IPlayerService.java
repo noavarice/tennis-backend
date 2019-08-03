@@ -2,6 +2,7 @@ package com.github.sportstats.services.service;
 
 import com.github.sportstats.services.model.player.NewPlayer;
 import com.github.sportstats.services.model.player.Player;
+import com.github.sportstats.services.model.player.PlayerListModel;
 import com.github.sportstats.services.model.player.UpdatedPlayer;
 import com.github.sportstats.services.util.Page;
 import com.github.sportstats.services.util.PagingParams;
@@ -44,5 +45,5 @@ public interface IPlayerService extends ExistsByIdService {
   /**
    * @see AbstractPagingService#getPaged(PagingParams, SortParams)
    */
-  Page<Player> getPaged(final PagingParams paging, final SortParams sort);
+  Page<PlayerListModel> getPaged(final PagingParams paging, final SortParams sort);
 }
