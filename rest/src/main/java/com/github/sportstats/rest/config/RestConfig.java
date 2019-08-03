@@ -1,8 +1,9 @@
 package com.github.sportstats.rest.config;
 
-import com.github.sportstats.commons.enumeration.Country;
-import com.github.sportstats.rest.jackson.deserialize.CountryDeserializer;
-import com.github.sportstats.rest.jackson.serialize.CountrySerializer;
+import com.github.sportstats.rest.jackson.deserialize.LocalDateDeserializer;
+import com.github.sportstats.rest.jackson.deserialize.TrimmingStringDeserializer;
+import com.github.sportstats.rest.jackson.serialize.LocalDateSerializer;
+import java.time.LocalDate;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +20,6 @@ import org.springframework.stereotype.Component;
 @ComponentScan({
     "com.github.sportstats.rest.controller",
     "com.github.sportstats.rest.exception.handler.advice",
-    "com.github.sportstats.rest.jackson.serialize",
-    "com.github.sportstats.rest.jackson.deserialize",
     "com.github.sportstats.rest.validation",
     "com.github.sportstats.services.config",
     "com.github.sportstats.commons.config",
@@ -38,8 +37,9 @@ public class RestConfig {
     public Object postProcessAfterInitialization(final Object bean, final String beanName) {
       if (bean instanceof Jackson2ObjectMapperBuilder) {
         final var builder = (Jackson2ObjectMapperBuilder)bean;
-        builder.deserializerByType(Country.class, new CountryDeserializer());
-        builder.serializerByType(Country.class, new CountrySerializer());
+        builder.deserializerByType(String.class, new TrimmingStringDeserializer());
+        builder.deserializerByType(LocalDate.class, new LocalDateDeserializer());
+        builder.serializerByType(LocalDate.class, new LocalDateSerializer());
       }
 
       return bean;
