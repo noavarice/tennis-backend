@@ -4,19 +4,19 @@ databaseChangeLog:
       author: noavarice
       comment: Setting working schema
       sqlFile:
-        - path: changeset/changeset-000.sql
+        - path: changeset/50/changeset-000.sql
         - relativeToChangelogFile: true
   - changeSet:
       id: 1
       author: noavarice
       comment: Players table and basic country data
       sqlFile:
-        - path: changeset/changeset-001.sql
+        - path: changeset/50/changeset-001.sql
         - relativeToChangelogFile: true
   - changeSet:
       id: 2
       author: noavarice
       comment: Added birth date column
       sqlFile:
-        - path: changeset/changeset-002.sql
+        - path: changeset/50/changeset-002.sql
         - relativeToChangelogFile: true
