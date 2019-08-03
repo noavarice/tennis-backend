@@ -1,6 +1,7 @@
 package com.github.sportstats.rest.view.player;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.sportstats.commons.enumeration.Country;
 import com.github.sportstats.commons.util.DateTimeUtils;
 import com.github.sportstats.rest.validation.ConstraintConstants;
@@ -10,6 +11,7 @@ import com.github.sportstats.rest.validation.StringFormat;
 import com.github.sportstats.rest.validation.group.BuiltIn;
 import java.time.LocalDate;
 import javax.validation.constraints.*;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Contains common player information across different views.
@@ -30,6 +32,7 @@ public interface AbstractPlayerView {
       max = ConstraintConstants.Player.NAME_MAX_LENGTH,
       message = PropertyPath.Player.FIRST_NAME + Errors.INVALID_SIZE,
       groups = BuiltIn.class)
+  @Nullable
   String getFirstName();
 
   @NotBlank(
@@ -43,11 +46,13 @@ public interface AbstractPlayerView {
       max = ConstraintConstants.Player.NAME_MAX_LENGTH,
       message = PropertyPath.Player.LAST_NAME + Errors.INVALID_SIZE,
       groups = BuiltIn.class)
+  @Nullable
   String getLastName();
 
   @NotNull(
       message = PropertyPath.Player.COUNTRY + Errors.IS_NULL,
       groups = BuiltIn.class)
+  @Nullable
   Country getCountry();
 
   @NotNull(
@@ -57,5 +62,6 @@ public interface AbstractPlayerView {
       message = PropertyPath.Player.BIRTH_DATE + Errors.NON_PAST,
       groups = BuiltIn.class)
   @JsonFormat(pattern = DateTimeUtils.ISO_DATE_PATTERN)
+  @Nullable
   LocalDate getBirthDate();
 }
