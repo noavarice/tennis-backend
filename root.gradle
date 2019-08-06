@@ -1,6 +1,7 @@
 plugins {
   id 'java'
   id 'idea'
+  id 'org.springframework.boot' version '2.1.7.RELEASE'
 }
 
 group 'com.github.sport-stats'
@@ -30,4 +31,8 @@ subprojects {
 
 dependencies {
   implementation project(':rest')
+}
+
+bootJar {
+  mainClassName = 'com.github.sportstats.rest.SportStatsApplication'
 }
