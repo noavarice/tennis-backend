@@ -14,5 +14,6 @@ import org.springframework.context.annotation.Configuration;
   "com.github.sportstats.provider.config",
   "com.github.sportstats.services.service.impl",
   "com.github.sportstats.services.mapper.impl",
+  "com.github.sportstats.services.validation",
 })
 public class ServicesConfig {}

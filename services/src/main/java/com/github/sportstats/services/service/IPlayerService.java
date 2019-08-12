@@ -1,12 +1,13 @@
 package com.github.sportstats.services.service;
 
-import com.github.sportstats.services.model.player.NewPlayer;
-import com.github.sportstats.services.model.player.Player;
-import com.github.sportstats.services.model.player.PlayerListModel;
-import com.github.sportstats.services.model.player.UpdatedPlayer;
-import com.github.sportstats.services.util.Page;
-import com.github.sportstats.services.util.PagingParams;
-import com.github.sportstats.services.util.SortParams;
+import com.github.sportstats.services.model.player.NewPlayerView;
+import com.github.sportstats.services.model.player.PlayerListView;
+import com.github.sportstats.services.model.player.PlayerView;
+import com.github.sportstats.services.model.player.UpdatedPlayerView;
+import com.github.sportstats.services.util.PageView;
+import com.github.sportstats.services.util.PagingParamsView;
+import com.github.sportstats.services.util.SortParamsView;
+import javax.validation.Valid;
 
 /**
  * Declares high-level operations upon players.
@@ -22,7 +23,7 @@ public interface IPlayerService extends ExistsByIdService {
    * @param player Player information
    * @return Player information with assigned unique ID
    */
-  Player create(final NewPlayer player);
+  PlayerView create(@Valid final NewPlayerView player);
 
   /**
    * Updates information about existing player.
@@ -31,7 +32,7 @@ public interface IPlayerService extends ExistsByIdService {
    * @return Updated player
    * @throws IllegalArgumentException If player with such {@code playerId} does not exist
    */
-  Player update(final UpdatedPlayer player);
+  PlayerView update(@Valid final UpdatedPlayerView player);
 
   /**
    * Retrieves player with specified ID.
@@ -40,10 +41,10 @@ public interface IPlayerService extends ExistsByIdService {
    * @return Player information
    * @throws IllegalArgumentException If player with such {@code playerId} does not exist
    */
-  Player getById(final int playerId);
+  PlayerView getById(final int playerId);
 
   /**
-   * @see AbstractPagingService#getPaged(PagingParams, SortParams)
+   * @see AbstractPagingService#getPaged(PagingParamsView, SortParamsView)
    */
-  Page<PlayerListModel> getPaged(final PagingParams paging, final SortParams sort);
+  PageView<PlayerListView> getPaged(final PagingParamsView paging, final SortParamsView sort);
 }

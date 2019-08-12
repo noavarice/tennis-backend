@@ -1,24 +1,6 @@
-plugins {
-  id 'net.ltgt.apt' version '0.20'
-}
-
-ext {
-  validator_ver = '6.0.15.Final'
-  immutables_ver = '2.7.4'
-  jetbrains_annotations_ver = '17.0.0'
-}
-
 dependencies {
   implementation project(':services')
   implementation project(':commons')
-  implementation project(':commons-mapstruct')
-  compileOnly "org.immutables:value:$immutables_ver"
-  annotationProcessor "org.immutables:value:$immutables_ver"
 
   implementation "org.springframework.boot:spring-boot-starter-web:$spring_boot_ver"
-  implementation "org.hibernate.validator:hibernate-validator:$validator_ver"
-  implementation "org.mapstruct:mapstruct:$mapstruct_ver"
-  annotationProcessor "org.mapstruct:mapstruct-processor:$mapstruct_ver"
-
-  implementation "org.jetbrains:annotations:$jetbrains_annotations_ver"
 }

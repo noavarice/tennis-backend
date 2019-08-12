@@ -4,16 +4,19 @@ import com.github.sportstats.provider.model.PlayerEntity;
 import com.github.sportstats.provider.projection.player.PlayerListProjection;
 import com.github.sportstats.provider.repository.IPlayerRepository;
 import com.github.sportstats.services.mapper.IPlayerServicesMapper;
-import com.github.sportstats.services.model.player.NewPlayer;
-import com.github.sportstats.services.model.player.Player;
-import com.github.sportstats.services.model.player.PlayerListModel;
-import com.github.sportstats.services.model.player.UpdatedPlayer;
+import com.github.sportstats.services.model.player.NewPlayerView;
+import com.github.sportstats.services.model.player.PlayerListView;
+import com.github.sportstats.services.model.player.PlayerView;
+import com.github.sportstats.services.model.player.UpdatedPlayerView;
 import com.github.sportstats.services.service.AbstractPagingService;
 import com.github.sportstats.services.service.IPlayerService;
+import com.github.sportstats.services.validation.group.sequence.DefaultOrder;
+import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 /**
  * Default implementation of {@link IPlayerService}.
@@ -22,8 +25,9 @@ import org.springframework.stereotype.Service;
  * @since 0.0.1
  */
 @Service
+@Validated
 public class PlayerServiceImpl
-    extends AbstractPagingService<PlayerListModel, PlayerListProjection>
+    extends AbstractPagingService<PlayerListView, PlayerListProjection>
     implements IPlayerService {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(PlayerServiceImpl.class);
@@ -42,28 +46,30 @@ public class PlayerServiceImpl
   }
 
   @Override
-  public Player create(final NewPlayer player) {
+  @Validated(DefaultOrder.class)
+  public PlayerView create(final NewPlayerView player) {
     LOGGER.info("[Player] Creating new player");
-    final Player createdPlayer = mapper.toModel(repository.save(mapper.toEntity(player)));
+    final PlayerView createdPlayer = mapper.toModel(repository.save(mapper.toEntity(player)));
     LOGGER.info("[Player ID={}] Created {}", createdPlayer.getId(), createdPlayer);
     return createdPlayer;
   }
 
   @Override
-  public Player update(final UpdatedPlayer player) {
-    final int playerId = player.getId();
+  @Validated(DefaultOrder.class)
+  public PlayerView update(final UpdatedPlayerView player) {
+    final int playerId = player.getId().orElseThrow();
     LOGGER.info("[Player ID={}] Updating player", playerId);
     final PlayerEntity entity = repository
         .findById(playerId)
         .orElseThrow(() -> new IllegalArgumentException("Unknown player with ID=" + playerId));
     mapper.merge(player, entity);
-    final Player updatedPlayer = mapper.toModel(repository.save(entity));
+    final PlayerView updatedPlayer = mapper.toModel(repository.save(entity));
     LOGGER.info("[Player ID={}] Updated {}", playerId, updatedPlayer);
     return updatedPlayer;
   }
 
   @Override
-  public Player getById(final int playerId) {
+  public PlayerView getById(final int playerId) {
     return repository
         .findById(playerId)
         .map(mapper::toModel)

@@ -4,9 +4,10 @@ import com.github.sportstats.commons.enumeration.SortDirection;
 import com.github.sportstats.provider.repository.IPagingRepository;
 import com.github.sportstats.provider.util.PageableImpl;
 import com.github.sportstats.services.mapper.IBaseMapper;
-import com.github.sportstats.services.util.Page;
-import com.github.sportstats.services.util.PagingParams;
-import com.github.sportstats.services.util.SortParams;
+import com.github.sportstats.services.util.PageView;
+import com.github.sportstats.services.util.PagingParamsView;
+import com.github.sportstats.services.util.SortParamsView;
+import java.util.List;
 import org.springframework.data.domain.Sort;
 
 /**
@@ -37,7 +38,7 @@ public abstract class AbstractPagingService<LM, LE> {
    * @param sort Sorting parameters
    * @return Paged information
    */
-  public Page<LM> getPaged(final PagingParams paging, final SortParams sort) {
+  public PageView<LM> getPaged(final PagingParamsView paging, final SortParamsView sort) {
     final var pageable = new PageableImpl();
     pageable.setPageSize(paging.getPageSize());
     pageable.setPageNumber(paging.getPageNumber());
@@ -51,9 +52,7 @@ public abstract class AbstractPagingService<LM, LE> {
     }
 
     final var page = repository.findAllProjectedBy(pageable);
-    return Page.of(
-        mapper.toListModels(page.getContent()),
-        page.getTotalElements(),
-        page.getTotalPages());
+    final List<LM> content = mapper.toListModels(page.getContent());
+    return PageView.of(content, page.getTotalElements(), page.getTotalPages());
   }
 }

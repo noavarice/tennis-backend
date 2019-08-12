@@ -3,10 +3,10 @@ package com.github.sportstats.services.mapper;
 import com.github.sportstats.commons.mapstruct.config.DefaultMapperConfig;
 import com.github.sportstats.provider.model.PlayerEntity;
 import com.github.sportstats.provider.projection.player.PlayerListProjection;
-import com.github.sportstats.services.model.player.NewPlayer;
-import com.github.sportstats.services.model.player.Player;
-import com.github.sportstats.services.model.player.PlayerListModel;
-import com.github.sportstats.services.model.player.UpdatedPlayer;
+import com.github.sportstats.services.model.player.NewPlayerView;
+import com.github.sportstats.services.model.player.PlayerListView;
+import com.github.sportstats.services.model.player.PlayerView;
+import com.github.sportstats.services.model.player.UpdatedPlayerView;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
@@ -19,12 +19,12 @@ import org.mapstruct.MappingTarget;
  */
 @Mapper(config = DefaultMapperConfig.class)
 public interface IPlayerServicesMapper
-    extends IBaseMapper<Player, PlayerListModel, PlayerEntity, PlayerListProjection> {
+    extends IBaseMapper<PlayerView, PlayerListView, PlayerEntity, PlayerListProjection> {
 
   @Mapping(target = "id", ignore = true)
-  PlayerEntity toEntity(final NewPlayer player);
+  PlayerEntity toEntity(final NewPlayerView player);
 
   @Mapping(target = "id", ignore = true)
   @Mapping(target = "male", ignore = true)
-  void merge(final UpdatedPlayer player, @MappingTarget final PlayerEntity entity);
+  void merge(final UpdatedPlayerView player, @MappingTarget final PlayerEntity entity);
 }

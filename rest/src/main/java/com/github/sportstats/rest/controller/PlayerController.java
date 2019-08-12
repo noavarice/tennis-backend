@@ -1,22 +1,14 @@
 package com.github.sportstats.rest.controller;
 
 import com.github.sportstats.rest.exception.NotFoundException;
-import com.github.sportstats.rest.mapper.IPlayerRestMapper;
-import com.github.sportstats.rest.mapper.IRequestParamsMapper;
-import com.github.sportstats.rest.util.PagingParamsView;
-import com.github.sportstats.rest.util.SortParamsView;
-import com.github.sportstats.rest.util.PageView;
-import com.github.sportstats.rest.validation.ResourceType;
-import com.github.sportstats.rest.validation.ValidatorProxy;
-import com.github.sportstats.rest.validation.group.sequence.DefaultOrder;
-import com.github.sportstats.rest.view.player.*;
+import com.github.sportstats.services.model.player.*;
+import com.github.sportstats.services.util.PagingParamsView;
+import com.github.sportstats.services.util.SortParamsView;
+import com.github.sportstats.services.util.PageView;
+import com.github.sportstats.services.validation.ResourceType;
 import com.github.sportstats.services.service.IPlayerService;
-import com.github.sportstats.services.util.PagingParams;
-import com.github.sportstats.services.util.SortParams;
-import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -27,34 +19,19 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping(path = "/players")
-@Validated
 public class PlayerController {
 
   private final IPlayerService service;
 
-  private final IPlayerRestMapper mapper;
-
-  private final ValidatorProxy validatorProxy;
-
-  private final IRequestParamsMapper paramsMapper;
-
   @Autowired
-  public PlayerController(
-      final IPlayerService service,
-      final IPlayerRestMapper mapper,
-      final ValidatorProxy validatorProxy,
-      final IRequestParamsMapper paramsMapper) {
+  public PlayerController(final IPlayerService service) {
     this.service = service;
-    this.mapper = mapper;
-    this.validatorProxy = validatorProxy;
-    this.paramsMapper = paramsMapper;
   }
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  @Validated(DefaultOrder.class)
-  public PlayerView create(@RequestBody @Valid final ImmutableNewPlayerView view) {
-    return mapper.toView(service.create(mapper.toModel(view)));
+  public PlayerView create(@RequestBody final ImmutableNewPlayerView view) {
+    return service.create(view);
   }
 
   /**
@@ -75,21 +52,17 @@ public class PlayerController {
       @RequestBody final ImmutableUpdatedPlayerView player
   ) {
     checkPlayerExists(playerId);
-    final UpdatedPlayerView playerWithId = player.withId(playerId);
-    validatorProxy.validate(playerWithId, DefaultOrder.class);
-    return mapper.toView(service.update(mapper.toModel(playerWithId)));
+    return service.update(player.withId(playerId));
   }
 
   @GetMapping(path = "/{playerId}")
   public PlayerView getById(@PathVariable("playerId") final int playerId) {
     checkPlayerExists(playerId);
-    return mapper.toView(service.getById(playerId));
+    return service.getById(playerId);
   }
 
   @GetMapping
   public PageView<? extends PlayerListView> getPaged(final PagingParamsView paging, final SortParamsView sort) {
-    final PagingParams pagingModel = paramsMapper.toModel(paging);
-    final SortParams sortModel = paramsMapper.toModel(sort);
-    return mapper.toListViews(service.getPaged(pagingModel, sortModel));
+    return service.getPaged(paging, sort);
   }
 }
