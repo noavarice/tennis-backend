@@ -1,6 +1,6 @@
 rootProject.name = 'root'
 rootProject.buildFileName = rootProject.name + '.gradle'
-include 'rest', 'services', 'provider', 'commons', 'mappers'
+include 'rest', 'services', 'provider', 'commons', 'mappers', 'entities'
 
 rootProject.children.each {
   it.buildFileName = it.name + '.gradle'

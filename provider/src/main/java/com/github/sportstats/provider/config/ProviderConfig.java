@@ -13,6 +13,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  */
 @Configuration
 @EnableJpaRepositories("com.github.sportstats.provider.repository")
-@EntityScan("com.github.sportstats.provider.model")
+@EntityScan("com.github.sportstats.entity.model")
 @PropertySource("classpath:jpa.properties")
 public class ProviderConfig {}

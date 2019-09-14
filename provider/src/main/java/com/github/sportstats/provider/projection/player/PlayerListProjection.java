@@ -1,6 +1,7 @@
 package com.github.sportstats.provider.projection.player;
 
-import com.github.sportstats.provider.model.PlayerEntity;
+
+import com.github.sportstats.entity.model.PlayerEntity;
 
 /**
  * Simple list projection for {@link PlayerEntity}.

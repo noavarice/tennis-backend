@@ -1,7 +1,7 @@
 package com.github.sportstats.services.model.match;
 
 import com.github.sportstats.commons.enumeration.MatchStatus;
-import com.github.sportstats.provider.model.MatchEntity;
+import com.github.sportstats.entity.model.MatchEntity;
 import com.github.sportstats.services.model.player.PlayerListView;
 import java.time.Instant;
 

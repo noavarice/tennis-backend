@@ -1,4 +1,4 @@
-package com.github.sportstats.provider.converter;
+package com.github.sportstats.entity.converter;
 
 import com.github.sportstats.commons.enumeration.Country;
 import java.util.Objects;

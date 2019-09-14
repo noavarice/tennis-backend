@@ -1,6 +1,6 @@
 package com.github.sportstats.provider.repository;
 
-import com.github.sportstats.provider.model.MatchEntity;
+import com.github.sportstats.entity.model.MatchEntity;
 import org.springframework.data.repository.RepositoryDefinition;
 
 /**

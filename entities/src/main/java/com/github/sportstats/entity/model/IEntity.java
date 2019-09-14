@@ -1,4 +1,4 @@
-package com.github.sportstats.provider.model;
+package com.github.sportstats.entity.model;
 
 import javax.persistence.Entity;
 

@@ -1,7 +1,7 @@
 package com.github.sportstats.services.mapper;
 
+import com.github.sportstats.entity.model.PlayerEntity;
 import com.github.sportstats.mappers.config.DefaultMapperConfig;
-import com.github.sportstats.provider.model.PlayerEntity;
 import com.github.sportstats.provider.projection.player.PlayerListProjection;
 import com.github.sportstats.services.model.player.NewPlayerView;
 import com.github.sportstats.services.model.player.PlayerListView;

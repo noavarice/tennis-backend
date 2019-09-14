@@ -1,6 +1,6 @@
 package com.github.sportstats.services.service.impl;
 
-import com.github.sportstats.provider.model.MatchEntity;
+import com.github.sportstats.entity.model.MatchEntity;
 import com.github.sportstats.provider.repository.IMatchRepository;
 import com.github.sportstats.services.mapper.AbstractMatchMapper;
 import com.github.sportstats.services.model.match.AbstractNewSinglesMatchView;

@@ -1,6 +1,6 @@
-package com.github.sportstats.provider.model.id;
+package com.github.sportstats.entity.id;
 
-import com.github.sportstats.provider.model.MatchParticipantEntity;
+import com.github.sportstats.entity.model.MatchParticipantEntity;
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;

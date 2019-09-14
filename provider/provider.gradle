@@ -9,6 +9,7 @@ ext {
 
 dependencies {
   implementation project(':commons')
+  implementation project(':entities')
 
   implementation "org.springframework.boot:spring-boot-starter-data-jpa:$spring_boot_ver"
   implementation "org.postgresql:postgresql:$postgres_driver_ver"

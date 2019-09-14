@@ -1,6 +1,6 @@
-package com.github.sportstats.provider.model;
+package com.github.sportstats.entity.model;
 
-import com.github.sportstats.provider.model.id.MatchParticipantId;
+import com.github.sportstats.entity.id.MatchParticipantId;
 import javax.persistence.*;
 import org.hibernate.annotations.Immutable;
 

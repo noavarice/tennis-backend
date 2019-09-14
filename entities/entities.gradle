@@ -1,0 +1,9 @@
+ext {
+  jpaVer = '1.0.2.Final'
+  hibernateAnnotationsVer = '3.5.6-Final'
+}
+
+dependencies {
+  implementation project(':commons')
+  implementation "org.springframework.boot:spring-boot-starter-data-jpa:$spring_boot_ver"
+}

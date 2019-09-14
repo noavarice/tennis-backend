@@ -1,4 +1,4 @@
-package com.github.sportstats.provider.model;
+package com.github.sportstats.entity.model;
 
 import com.github.sportstats.commons.enumeration.Country;
 import java.time.LocalDate;

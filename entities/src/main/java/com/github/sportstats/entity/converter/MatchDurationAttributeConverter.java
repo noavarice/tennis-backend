@@ -1,6 +1,6 @@
-package com.github.sportstats.provider.converter;
+package com.github.sportstats.entity.converter;
 
-import com.github.sportstats.provider.model.MatchEntity;
+import com.github.sportstats.entity.model.MatchEntity;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 import javax.persistence.AttributeConverter;

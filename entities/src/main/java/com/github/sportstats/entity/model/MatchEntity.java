@@ -1,7 +1,7 @@
-package com.github.sportstats.provider.model;
+package com.github.sportstats.entity.model;
 
 import com.github.sportstats.commons.enumeration.MatchStatus;
-import com.github.sportstats.provider.converter.MatchDurationAttributeConverter;
+import com.github.sportstats.entity.converter.MatchDurationAttributeConverter;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
