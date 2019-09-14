@@ -27,4 +27,6 @@ public interface IPlayerServicesMapper
   @Mapping(target = "id", ignore = true)
   @Mapping(target = "male", ignore = true)
   void merge(final UpdatedPlayerView player, @MappingTarget final PlayerEntity entity);
+
+  PlayerListView toListModel(final PlayerEntity entity);
 }

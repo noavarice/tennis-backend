@@ -16,16 +16,16 @@ import javax.persistence.Embeddable;
 public class MatchParticipantId implements Serializable {
 
   @Column(name = "match_id", updatable = false)
-  private int matchId;
+  private Integer matchId;
 
   @Column(name = "player_id", updatable = false)
   private int playerId;
 
-  public int getMatchId() {
+  public Integer getMatchId() {
     return matchId;
   }
 
-  public void setMatchId(final int matchId) {
+  public void setMatchId(final Integer matchId) {
     this.matchId = matchId;
   }
 

@@ -1,6 +1,6 @@
 package com.github.sportstats.rest.controller;
 
-import com.github.sportstats.rest.exception.NotFoundException;
+import com.github.sportstats.rest.util.RestUtils;
 import com.github.sportstats.services.model.player.*;
 import com.github.sportstats.services.util.PagingParamsView;
 import com.github.sportstats.services.util.SortParamsView;
@@ -34,30 +34,18 @@ public class PlayerController {
     return service.create(view);
   }
 
-  /**
-   * Checks if player with specified ID exists.
-   *
-   * @param playerId Player ID
-   * @throws NotFoundException In case player with such ID is not found
-   */
-  private void checkPlayerExists(final int playerId) {
-    if (!service.exists(playerId)) {
-      throw new NotFoundException(ResourceType.PLAYER, playerId);
-    }
-  }
-
   @PutMapping("/{playerId}")
   public PlayerView update(
       @PathVariable("playerId") final int playerId,
       @RequestBody final ImmutableUpdatedPlayerView player
   ) {
-    checkPlayerExists(playerId);
+    RestUtils.exists(playerId, ResourceType.PLAYER, service);
     return service.update(player.withId(playerId));
   }
 
   @GetMapping(path = "/{playerId}")
   public PlayerView getById(@PathVariable("playerId") final int playerId) {
-    checkPlayerExists(playerId);
+    RestUtils.exists(playerId, ResourceType.PLAYER, service);
     return service.getById(playerId);
   }
 

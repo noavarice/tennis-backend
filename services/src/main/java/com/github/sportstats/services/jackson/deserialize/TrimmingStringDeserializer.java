@@ -19,6 +19,6 @@ public class TrimmingStringDeserializer extends StdDeserializer<String> {
 
   @Override
   public String deserialize(final JsonParser p, final DeserializationContext ctxt) throws IOException{
-    return p.getValueAsString().trim();
+    return p.getValueAsString().strip();
   }
 }

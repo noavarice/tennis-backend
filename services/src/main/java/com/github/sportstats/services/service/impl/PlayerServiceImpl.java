@@ -11,7 +11,6 @@ import com.github.sportstats.services.model.player.UpdatedPlayerView;
 import com.github.sportstats.services.service.AbstractPagingService;
 import com.github.sportstats.services.service.IPlayerService;
 import com.github.sportstats.services.validation.group.sequence.DefaultOrder;
-import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
