@@ -11,7 +11,7 @@ ext {
 dependencies {
   implementation project(':provider')
   implementation project(':commons')
-  implementation project(':commons-mapstruct')
+  implementation project(':mappers')
 
   implementation "org.springframework.boot:spring-boot-autoconfigure:$spring_boot_ver"
   implementation "org.springframework.boot:spring-boot-starter-jdbc:$spring_boot_ver"

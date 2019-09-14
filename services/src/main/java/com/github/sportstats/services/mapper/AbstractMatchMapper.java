@@ -1,7 +1,7 @@
 package com.github.sportstats.services.mapper;
 
 import com.github.sportstats.commons.enumeration.MatchStatus;
-import com.github.sportstats.commons.mapstruct.config.DefaultMapperConfig;
+import com.github.sportstats.mappers.config.DefaultMapperConfig;
 import com.github.sportstats.provider.model.MatchEntity;
 import com.github.sportstats.provider.model.MatchParticipantEntity;
 import com.github.sportstats.provider.model.id.MatchParticipantId;

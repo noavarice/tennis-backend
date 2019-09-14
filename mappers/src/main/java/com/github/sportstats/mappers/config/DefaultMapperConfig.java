@@ -1,4 +1,4 @@
-package com.github.sportstats.commons.mapstruct.config;
+package com.github.sportstats.mappers.config;
 
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
