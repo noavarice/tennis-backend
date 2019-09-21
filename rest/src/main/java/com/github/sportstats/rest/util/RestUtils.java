@@ -2,7 +2,7 @@ package com.github.sportstats.rest.util;
 
 import com.github.sportstats.rest.exception.NotFoundException;
 import com.github.sportstats.services.service.ExistsByIdService;
-import com.github.sportstats.services.validation.ResourceType;
+import com.github.sportstats.view.validation.ResourceType;
 
 /**
  * Contains various REST-specific methods.

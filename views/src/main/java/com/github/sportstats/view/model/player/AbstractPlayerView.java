@@ -1,11 +1,11 @@
-package com.github.sportstats.services.model.player;
+package com.github.sportstats.view.model.player;
 
 import com.github.sportstats.commons.enumeration.Country;
-import com.github.sportstats.services.validation.ConstraintConstants;
-import com.github.sportstats.services.validation.Errors;
-import com.github.sportstats.services.validation.PropertyPath;
-import com.github.sportstats.services.validation.StringFormat;
-import com.github.sportstats.services.validation.group.BuiltIn;
+import com.github.sportstats.view.validation.ConstraintConstants;
+import com.github.sportstats.view.validation.Errors;
+import com.github.sportstats.view.validation.PropertyPath;
+import com.github.sportstats.view.validation.StringFormat;
+import com.github.sportstats.view.validation.group.BuiltIn;
 import java.time.LocalDate;
 import javax.validation.constraints.*;
 import org.jetbrains.annotations.Nullable;

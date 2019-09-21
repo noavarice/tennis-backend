@@ -1,4 +1,4 @@
-package com.github.sportstats.services.validation.group;
+package com.github.sportstats.view.validation.group;
 
 /**
  * Validation group for custom constraints.

@@ -1,4 +1,4 @@
-package com.github.sportstats.services.validation;
+package com.github.sportstats.view.validation;
 
 /**
  * Possible types of resources.

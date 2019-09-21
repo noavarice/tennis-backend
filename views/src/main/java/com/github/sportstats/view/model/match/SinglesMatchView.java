@@ -1,12 +1,11 @@
-package com.github.sportstats.services.model.match;
+package com.github.sportstats.view.model.match;
 
 import com.github.sportstats.commons.enumeration.MatchStatus;
-import com.github.sportstats.entity.model.MatchEntity;
-import com.github.sportstats.services.model.player.PlayerListView;
+import com.github.sportstats.view.model.player.AbstractPlayerListView;
 import java.time.Instant;
 
 /**
- * Read-only {@link MatchEntity match} singles view.
+ * Read-only singles view.
  *
  * @author noavarice
  * @since 0.0.1
@@ -17,9 +16,9 @@ public final class SinglesMatchView {
 
   private Instant startsAt;
 
-  private PlayerListView firstPlayer;
+  private AbstractPlayerListView firstPlayer;
 
-  private PlayerListView secondPlayer;
+  private AbstractPlayerListView secondPlayer;
 
   private MatchStatus status;
 
@@ -39,19 +38,19 @@ public final class SinglesMatchView {
     this.startsAt = startsAt;
   }
 
-  public PlayerListView getFirstPlayer() {
+  public AbstractPlayerListView getFirstPlayer() {
     return firstPlayer;
   }
 
-  public void setFirstPlayer(final PlayerListView firstPlayer) {
+  public void setFirstPlayer(final AbstractPlayerListView firstPlayer) {
     this.firstPlayer = firstPlayer;
   }
 
-  public PlayerListView getSecondPlayer() {
+  public AbstractPlayerListView getSecondPlayer() {
     return secondPlayer;
   }
 
-  public void setSecondPlayer(final PlayerListView secondPlayer) {
+  public void setSecondPlayer(final AbstractPlayerListView secondPlayer) {
     this.secondPlayer = secondPlayer;
   }
 

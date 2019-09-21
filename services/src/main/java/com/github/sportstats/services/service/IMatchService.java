@@ -1,7 +1,7 @@
 package com.github.sportstats.services.service;
 
-import com.github.sportstats.services.model.match.AbstractNewSinglesMatchView;
-import com.github.sportstats.services.model.match.SinglesMatchView;
+import com.github.sportstats.view.model.match.AbstractNewSinglesMatchView;
+import com.github.sportstats.view.model.match.SinglesMatchView;
 
 /**
  * Service to work with matches.

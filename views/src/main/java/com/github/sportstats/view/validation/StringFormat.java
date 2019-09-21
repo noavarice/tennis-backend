@@ -1,4 +1,4 @@
-package com.github.sportstats.services.validation;
+package com.github.sportstats.view.validation;
 
 /**
  * Contains various regexp patterns to be used for validation purposes.

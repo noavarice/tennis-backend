@@ -1,4 +1,4 @@
-package com.github.sportstats.services.validation;
+package com.github.sportstats.view.validation;
 
 /**
  * Contains description error codes to be used as second part of constraint violation messages.

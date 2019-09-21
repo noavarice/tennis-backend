@@ -4,8 +4,6 @@ plugins {
 
 ext {
   validator_ver = '6.0.15.Final'
-  immutables_ver = '2.7.4'
-  jetbrains_annotations_ver = '17.0.0'
 }
 
 dependencies {
@@ -13,6 +11,7 @@ dependencies {
   implementation project(':commons')
   implementation project(':mappers')
   implementation project(':entities')
+  implementation project(':views')
 
   implementation "org.springframework.boot:spring-boot-autoconfigure:$spring_boot_ver"
   implementation "org.springframework.boot:spring-boot-starter-jdbc:$spring_boot_ver"
@@ -20,10 +19,7 @@ dependencies {
   implementation "ch.qos.logback:logback-classic:$logback_ver"
   implementation "org.mapstruct:mapstruct:$mapstruct_ver"
   implementation "org.hibernate.validator:hibernate-validator:$validator_ver"
-  implementation "org.jetbrains:annotations:$jetbrains_annotations_ver"
-  compileOnly "org.immutables:value:$immutables_ver"
   annotationProcessor "org.mapstruct:mapstruct-processor:$mapstruct_ver"
-  annotationProcessor "org.immutables:value:$immutables_ver"
 
   // to make accessible various Spring Data specific implementation classes
   compileClasspath "org.springframework.data:spring-data-commons:$spring_boot_ver"

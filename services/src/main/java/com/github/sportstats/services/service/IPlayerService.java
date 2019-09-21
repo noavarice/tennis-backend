@@ -1,9 +1,6 @@
 package com.github.sportstats.services.service;
 
-import com.github.sportstats.services.model.player.NewPlayerView;
-import com.github.sportstats.services.model.player.PlayerListView;
-import com.github.sportstats.services.model.player.PlayerView;
-import com.github.sportstats.services.model.player.UpdatedPlayerView;
+import com.github.sportstats.view.model.player.*;
 import com.github.sportstats.services.util.PageView;
 import com.github.sportstats.services.util.PagingParamsView;
 import com.github.sportstats.services.util.SortParamsView;

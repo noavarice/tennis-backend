@@ -1,6 +1,6 @@
 package com.github.sportstats.rest.exception;
 
-import com.github.sportstats.services.validation.ResourceType;
+import com.github.sportstats.view.validation.ResourceType;
 
 /**
  * Exception throwing if target resource is not found.

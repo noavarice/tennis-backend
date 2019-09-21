@@ -1,8 +1,8 @@
-package com.github.sportstats.services.validation.group.sequence;
+package com.github.sportstats.view.validation.group.sequence;
 
-import com.github.sportstats.services.validation.group.BuiltIn;
-import com.github.sportstats.services.validation.group.Custom;
-import com.github.sportstats.services.validation.group.Required;
+import com.github.sportstats.view.validation.group.BuiltIn;
+import com.github.sportstats.view.validation.group.Custom;
+import com.github.sportstats.view.validation.group.Required;
 import javax.validation.GroupSequence;
 import javax.validation.groups.Default;
 

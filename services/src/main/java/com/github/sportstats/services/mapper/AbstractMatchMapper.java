@@ -5,9 +5,9 @@ import com.github.sportstats.entity.model.MatchEntity;
 import com.github.sportstats.entity.model.MatchParticipantEntity;
 import com.github.sportstats.mappers.config.DefaultMapperConfig;
 import com.github.sportstats.entity.id.MatchParticipantId;
-import com.github.sportstats.services.model.match.AbstractNewSinglesMatchView;
-import com.github.sportstats.services.model.match.SinglesMatchView;
-import com.github.sportstats.services.model.player.PlayerListView;
+import com.github.sportstats.view.model.match.AbstractNewSinglesMatchView;
+import com.github.sportstats.view.model.match.SinglesMatchView;
+import com.github.sportstats.view.model.player.AbstractPlayerListView;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
@@ -73,7 +73,7 @@ public abstract class AbstractMatchMapper {
   @AfterMapping
   protected void afterViewMapping(MatchEntity entity, @MappingTarget SinglesMatchView view) {
     for (final MatchParticipantEntity participant: entity.getParticipants()) {
-      final PlayerListView player = playerMapper.toListModel(participant.getPlayer());
+      final AbstractPlayerListView player = playerMapper.toListModel(participant.getPlayer());
       if (participant.isHost()) {
         view.setFirstPlayer(player);
       } else {

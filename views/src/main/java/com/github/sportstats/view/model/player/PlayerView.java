@@ -1,4 +1,4 @@
-package com.github.sportstats.services.model.player;
+package com.github.sportstats.view.model.player;
 
 import com.github.sportstats.commons.enumeration.Country;
 import java.time.LocalDate;

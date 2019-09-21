@@ -1,4 +1,4 @@
-package com.github.sportstats.services.model;
+package com.github.sportstats.view.model;
 
 /**
  * Utility view for different purpose (for example, for enum values).

@@ -1,4 +1,4 @@
-package com.github.sportstats.services.model.player;
+package com.github.sportstats.view.model.player;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;

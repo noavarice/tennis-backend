@@ -1,0 +1,51 @@
+plugins {
+  id 'idea'
+}
+
+ext {
+  validationApiVer = '2.0.1.Final'
+  jetbrains_annotations_ver = '17.0.0'
+  immutables_ver = '2.7.4'
+  jacksonVer = '2.9.9.3'
+}
+
+dependencies {
+  implementation project(':commons')
+
+  implementation "javax.validation:validation-api:$validationApiVer"
+  implementation "org.jetbrains:annotations:$jetbrains_annotations_ver"
+  implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVer"
+
+  compileOnly "org.immutables:value:$immutables_ver"
+  annotationProcessor "org.immutables:value:$immutables_ver"
+}
+
+sourceSets {
+  generated {
+    java {
+      compileClasspath += sourceSets.main.compileClasspath
+    }
+  }
+}
+
+task copyGeneratedJava(type: Copy) {
+  from "$buildDir/classes/java/main"
+  include '**/*.java'
+  into 'src/generated/java'
+
+  idea {
+    module {
+      generatedSourceDirs += file('src/generated/java')
+    }
+  }
+}
+
+copyGeneratedJava.dependsOn compileJava
+copyGeneratedJava.mustRunAfter compileJava
+jar.dependsOn copyGeneratedJava
+
+clean {
+  doLast {
+    file('src/generated').deleteDir()
+  }
+}

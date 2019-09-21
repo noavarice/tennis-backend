@@ -1,11 +1,11 @@
 package com.github.sportstats.rest.controller;
 
 import com.github.sportstats.rest.util.RestUtils;
-import com.github.sportstats.services.model.match.SinglesMatchView;
-import com.github.sportstats.services.model.match.NewSinglesMatchView;
+import com.github.sportstats.view.model.match.SinglesMatchView;
+import com.github.sportstats.view.model.match.NewSinglesMatchView;
 import com.github.sportstats.services.service.IMatchService;
 import com.github.sportstats.services.service.IPlayerService;
-import com.github.sportstats.services.validation.ResourceType;
+import com.github.sportstats.view.validation.ResourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

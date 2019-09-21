@@ -1,11 +1,11 @@
 package com.github.sportstats.rest.controller;
 
 import com.github.sportstats.rest.util.RestUtils;
-import com.github.sportstats.services.model.player.*;
+import com.github.sportstats.view.model.player.*;
 import com.github.sportstats.services.util.PagingParamsView;
 import com.github.sportstats.services.util.SortParamsView;
 import com.github.sportstats.services.util.PageView;
-import com.github.sportstats.services.validation.ResourceType;
+import com.github.sportstats.view.validation.ResourceType;
 import com.github.sportstats.services.service.IPlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,7 +50,7 @@ public class PlayerController {
   }
 
   @GetMapping
-  public PageView<? extends PlayerListView> getPaged(final PagingParamsView paging, final SortParamsView sort) {
+  public PageView<? extends AbstractPlayerListView> getPaged(final PagingParamsView paging, final SortParamsView sort) {
     return service.getPaged(paging, sort);
   }
 }

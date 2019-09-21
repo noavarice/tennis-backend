@@ -1,6 +1,6 @@
 package com.github.sportstats.services.validation.constraint;
 
-import com.github.sportstats.services.validation.ResourceType;
+import com.github.sportstats.view.validation.ResourceType;
 import com.github.sportstats.services.validation.constraint.validator.ExistsById;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

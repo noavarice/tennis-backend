@@ -1,9 +1,9 @@
-package com.github.sportstats.services.model.match;
+package com.github.sportstats.view.model.match;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.github.sportstats.services.validation.Errors;
-import com.github.sportstats.services.validation.PropertyPath;
-import com.github.sportstats.services.validation.group.BuiltIn;
+import com.github.sportstats.view.validation.Errors;
+import com.github.sportstats.view.validation.PropertyPath;
+import com.github.sportstats.view.validation.group.BuiltIn;
 import java.time.Instant;
 import javax.validation.constraints.NotNull;
 import org.immutables.value.Value;
