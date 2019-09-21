@@ -1,4 +1,4 @@
-package com.github.sportstats.services.mapper;
+package com.github.sportstats.mapper;
 
 import java.util.List;
 

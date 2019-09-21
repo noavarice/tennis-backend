@@ -1,7 +1,7 @@
 package com.github.sportstats.provider.repository;
 
 import com.github.sportstats.entity.model.PlayerEntity;
-import com.github.sportstats.provider.projection.player.PlayerListProjection;
+import com.github.sportstats.entity.projection.player.PlayerListProjection;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.RepositoryDefinition;

@@ -1,3 +1,10 @@
 dependencies {
+  implementation project(':commons')
+  implementation project(':entities')
+  implementation project(':views')
+
   implementation "org.mapstruct:mapstruct:$mapstruct_ver"
+  implementation "org.springframework.boot:spring-boot:$spring_boot_ver"
+
+  annotationProcessor "org.mapstruct:mapstruct-processor:$mapstruct_ver"
 }

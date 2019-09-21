@@ -22,8 +22,8 @@ import org.springframework.stereotype.Component;
 @Configuration
 @ComponentScan({
   "com.github.sportstats.provider.config",
+  "com.github.sportstats.mapper.impl",
   "com.github.sportstats.services.service.impl",
-  "com.github.sportstats.services.mapper.impl",
   "com.github.sportstats.services.validation",
 })
 public class ServicesConfig {

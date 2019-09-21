@@ -17,9 +17,7 @@ dependencies {
   implementation "org.springframework.boot:spring-boot-starter-jdbc:$spring_boot_ver"
   implementation "org.springframework.boot:spring-boot-starter-web:$spring_boot_ver"
   implementation "ch.qos.logback:logback-classic:$logback_ver"
-  implementation "org.mapstruct:mapstruct:$mapstruct_ver"
   implementation "org.hibernate.validator:hibernate-validator:$validator_ver"
-  annotationProcessor "org.mapstruct:mapstruct-processor:$mapstruct_ver"
 
   // to make accessible various Spring Data specific implementation classes
   compileClasspath "org.springframework.data:spring-data-commons:$spring_boot_ver"

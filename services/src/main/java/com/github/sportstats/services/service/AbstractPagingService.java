@@ -3,7 +3,7 @@ package com.github.sportstats.services.service;
 import com.github.sportstats.commons.enumeration.SortDirection;
 import com.github.sportstats.provider.repository.IPagingRepository;
 import com.github.sportstats.provider.util.PageableImpl;
-import com.github.sportstats.services.mapper.IBaseMapper;
+import com.github.sportstats.mapper.IBaseMapper;
 import com.github.sportstats.services.util.PageView;
 import com.github.sportstats.services.util.PagingParamsView;
 import com.github.sportstats.services.util.SortParamsView;

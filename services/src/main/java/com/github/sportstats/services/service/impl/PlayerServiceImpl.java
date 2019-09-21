@@ -1,9 +1,9 @@
 package com.github.sportstats.services.service.impl;
 
 import com.github.sportstats.entity.model.PlayerEntity;
-import com.github.sportstats.provider.projection.player.PlayerListProjection;
+import com.github.sportstats.entity.projection.player.PlayerListProjection;
 import com.github.sportstats.provider.repository.IPlayerRepository;
-import com.github.sportstats.services.mapper.IPlayerServicesMapper;
+import com.github.sportstats.mapper.IPlayerServicesMapper;
 import com.github.sportstats.view.model.player.*;
 import com.github.sportstats.services.service.AbstractPagingService;
 import com.github.sportstats.services.service.IPlayerService;

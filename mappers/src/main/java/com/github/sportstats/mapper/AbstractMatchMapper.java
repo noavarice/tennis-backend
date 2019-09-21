@@ -1,9 +1,9 @@
-package com.github.sportstats.services.mapper;
+package com.github.sportstats.mapper;
 
 import com.github.sportstats.commons.enumeration.MatchStatus;
 import com.github.sportstats.entity.model.MatchEntity;
 import com.github.sportstats.entity.model.MatchParticipantEntity;
-import com.github.sportstats.mappers.config.DefaultMapperConfig;
+import com.github.sportstats.mapper.config.DefaultMapperConfig;
 import com.github.sportstats.entity.id.MatchParticipantId;
 import com.github.sportstats.view.model.match.AbstractNewSinglesMatchView;
 import com.github.sportstats.view.model.match.SinglesMatchView;

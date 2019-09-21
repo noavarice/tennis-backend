@@ -1,4 +1,4 @@
-package com.github.sportstats.provider.projection.player;
+package com.github.sportstats.entity.projection.player;
 
 
 import com.github.sportstats.entity.model.PlayerEntity;
